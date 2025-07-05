@@ -5,22 +5,24 @@
   cursor: pointer;
   font-weight: 500;
   transition: all 0.2s ease-in-out;
-  color: #fff;
 }
 
 .primary {
-  background-color: #4e85f2;
+  background-color: var(--button-primary-bg);
+  color: var(--button-primary-text);
 }
 
 .secondary {
-  background-color: #ddd;
-  color: #222;
+  background-color: var(--button-secondary-bg);
+  color: var(--button-secondary-text);
 }
 
 .success {
   background-color: #46a446;
+  color: #fff;
 }
 
 .danger {
   background-color: #d2332d;
+  color: #fff;
 }
