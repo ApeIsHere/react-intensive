@@ -24,9 +24,11 @@ function PostList() {
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>Posts</h1>
-      {mockPosts.map((post) => (
-        <PostCard key={post.id} title={post.title} content={post.content} />
-      ))}
+      <ul>
+        {mockPosts.map((post) => (
+          <PostCard key={post.id} title={post.title} content={post.content} />
+        ))}
+      </ul>
     </div>
   );
 }
