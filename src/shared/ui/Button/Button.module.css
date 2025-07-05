@@ -1,0 +1,26 @@
+.button {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s ease-in-out;
+  color: #fff;
+}
+
+.primary {
+  background-color: #4e85f2;
+}
+
+.secondary {
+  background-color: #ddd;
+  color: #222;
+}
+
+.success {
+  background-color: #46a446;
+}
+
+.danger {
+  background-color: #d2332d;
+}
