@@ -8,6 +8,10 @@ type ModalProps = {
   onClose: () => void;
 };
 
+type ModalCompoundProps = {
+  children: ReactNode;
+};
+
 function Modal({ children, isOpen, onClose }: ModalProps) {
   // Закрываем модалку на Escape
   useEffect(() => {
@@ -39,5 +43,15 @@ function Modal({ children, isOpen, onClose }: ModalProps) {
     document.body
   );
 }
+
+Modal.Header = ({ children }: ModalCompoundProps) => {
+  return <h2 className={styles.header}>{children}</h2>;
+};
+Modal.Body = ({ children }: ModalCompoundProps) => {
+  return <p className={styles.body}>{children}</p>;
+};
+Modal.Footer = ({ children }: ModalCompoundProps) => {
+  return <div className={styles.footer}>{children}</div>;
+};
 
 export default Modal;
