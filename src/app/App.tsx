@@ -5,6 +5,7 @@ import LayoutHeader from "../widgets/LayoutHeader/LayoutHeader";
 import withLoading from "../shared/lib/hoc/withLoading";
 import PostList from "../widgets/PostList/PostList";
 import type { Post } from "../entities/post/model/types";
+import type { Comment } from "../entities/comment/model/types";
 
 // Заглушка
 const mockPosts = [
@@ -25,16 +26,57 @@ const mockPosts = [
   },
 ];
 
+const mockComments = [
+  {
+    id: 1,
+    postId: 1,
+    userName: "SleeplessDad_42",
+    body: "Used to sleep like a kid, but mine seems to hate it, I wonder why",
+  },
+  {
+    id: 2,
+    postId: 1,
+    userName: "Napfluencer",
+    body: "My favourite part of a working day",
+  },
+  {
+    id: 3,
+    postId: 2,
+    userName: "BarkBQ",
+    body: "Finally, a quiz that separates the -aww- crowd from the -mmm- crowd",
+  },
+  {
+    id: 4,
+    postId: 2,
+    userName: "SpiceRetriever",
+    body: "I thought I was a dog person until this test asked for my favorite seasoning",
+  },
+  {
+    id: 5,
+    postId: 3,
+    userName: "FlushAndFame",
+    body: "Living the dream, one flush at a time",
+  },
+  {
+    id: 6,
+    postId: 3,
+    userName: "Pumpinator9000",
+    body: "You came, you pumped, you conquered",
+  },
+];
+
 const PostListWithLoading = withLoading(PostList);
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [posts, setPosts] = useState<Post[]>([]);
+  const [comments, setComments] = useState<Comment[]>([]);
 
   //имитируем загрузку данных
   useEffect(() => {
     const timer = setTimeout(() => {
       setPosts(mockPosts);
+      setComments(mockComments);
       setIsLoading(false);
     }, 1000);
 
@@ -43,7 +85,7 @@ function App() {
 
   return (
     <MainLayout header={<LayoutHeader />} footer={<LayoutFooter />}>
-      <PostListWithLoading posts={posts} isLoading={isLoading} />
+      <PostListWithLoading posts={posts} isLoading={isLoading} comments={comments} />
     </MainLayout>
   );
 }
