@@ -11,17 +11,17 @@ import type { Comment } from "../entities/comment/model/types";
 const mockPosts = [
   {
     id: 1,
-    title: "Post 1",
+    title: "To nap or not to nap",
     content: "Some controversial text regarding benefits of lunch time sleep",
   },
   {
     id: 2,
-    title: "Post 2",
+    title: "Take the ultimate Quiz",
     content: "The survey that shows you if you're a doglover or a dogeater",
   },
   {
     id: 3,
-    title: "Post 3",
+    title: "Living in a dream",
     content: "40 years like a dream, working on shitpump machine",
   },
 ];
