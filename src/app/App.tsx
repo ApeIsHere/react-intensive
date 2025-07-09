@@ -6,6 +6,7 @@ import withLoading from "../shared/lib/hoc/withLoading";
 import PostList from "../widgets/PostList/PostList";
 import type { Post } from "../entities/post/model/types";
 import type { Comment } from "../entities/comment/model/types";
+import PostListSkeleton from "../shared/ui/Skeletons/PostListSkeleton";
 
 // Заглушка
 const mockPosts = [
@@ -65,7 +66,8 @@ const mockComments = [
   },
 ];
 
-const PostListWithLoading = withLoading(PostList);
+// Оборачиваем PostList в HOC и добавляем скелетона на время загрузки
+const PostListWithLoading = withLoading(PostList, PostListSkeleton);
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);

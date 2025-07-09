@@ -1,0 +1,65 @@
+/* Анимация пульсации */
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  margin-top: 30px;
+}
+
+.title_wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.title {
+  width: 200px;
+  height: 32px;
+  background: var(--card-border);
+  border-radius: 4px;
+  animation: pulse 1.4s infinite ease-in-out;
+}
+
+.slider {
+  width: 150px;
+  height: 16px;
+  background: var(--card-border);
+  border-radius: 10px;
+  animation: pulse 1.4s infinite ease-in-out;
+}
+
+.list {
+  list-style: none;
+  animation: pulse 1.4s infinite ease-in-out;
+}
+
+.card {
+  height: 100px;
+  background: var(--card-background);
+  border: 1px solid var(--card-border);
+  border-radius: 5px;
+  margin-bottom: 10px;
+  padding: 15px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.button {
+  height: 30px;
+  background: var(--card-border);
+  margin-bottom: 8px;
+  margin-left: auto;
+  border-radius: 5px;
+  width: 140px;
+}
