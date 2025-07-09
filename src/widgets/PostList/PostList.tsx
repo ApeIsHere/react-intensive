@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 import type { Comment } from "../../entities/comment/model/types";
 import type { Post } from "../../entities/post/model/types";
 import PostCard from "../../entities/post/ui/PostCard";
@@ -14,7 +14,10 @@ type PostListProps = {
 
 function PostList({ posts, comments }: PostListProps) {
   const [maxTitleLength, setMaxTitleLength] = useState(30);
-  const filtredPosts = filterByLength(posts, maxTitleLength);
+  const filtredPosts = useMemo(
+    () => filterByLength(posts, maxTitleLength),
+    [posts, maxTitleLength]
+  );
 
   return (
     <div className={styles.container}>
