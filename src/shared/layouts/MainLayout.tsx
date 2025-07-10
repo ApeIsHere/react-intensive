@@ -2,16 +2,16 @@ import type { ReactNode } from "react";
 import styles from "./MainLayout.module.css";
 
 type MainLayoutProps = {
-  children: ReactNode;
   header: ReactNode;
+  content: ReactNode;
   footer: ReactNode;
 };
 
-function MainLayout({ children, header, footer }: MainLayoutProps) {
+function MainLayout({ header, content, footer }: MainLayoutProps) {
   return (
     <div className={styles.page}>
       {header}
-      <main className={styles.content}>{children}</main>
+      <div className={styles.content}>{content}</div>
       {footer}
     </div>
   );
