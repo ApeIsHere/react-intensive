@@ -7,6 +7,8 @@ import PostList from "../widgets/PostList/PostList";
 import type { Post } from "../entities/post/model/types";
 import type { Comment } from "../entities/comment/model/types";
 import PostListSkeleton from "../shared/ui/Skeletons/PostListSkeleton";
+import { RouterProvider } from "react-router-dom";
+import { router } from "./providers/router/router";
 
 // Заглушка
 const mockPosts = [
@@ -86,9 +88,10 @@ function App() {
   }, []);
 
   return (
-    <MainLayout header={<LayoutHeader />} footer={<LayoutFooter />}>
-      <PostListWithLoading posts={posts} isLoading={isLoading} comments={comments} />
-    </MainLayout>
+    // <MainLayout header={<LayoutHeader />} footer={<LayoutFooter />}>
+    // {/* <PostListWithLoading posts={posts} isLoading={isLoading} comments={comments} /> */}
+    // </MainLayout>
+    <RouterProvider router={router} />
   );
 }
 
