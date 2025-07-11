@@ -1,6 +1,19 @@
 .header {
-  background: #f0f0f0;
+  background: var(--header-bg);
   padding: 20px;
   text-align: center;
   font-size: 1.5rem;
+  color: var(--text);
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.text {
+  flex: 1;
+}
+
+.switch {
+  position: absolute;
+  top: 20px;
+  right: 20px;
 }

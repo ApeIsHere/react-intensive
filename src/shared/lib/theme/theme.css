@@ -1,0 +1,25 @@
+[data-theme="light"] {
+  --background: #ffffff;
+  --text: #333333;
+  --card-background: #f9f9f9;
+  --card-border: #cccccc;
+  --header-bg: #f0f0f0;
+  --footer-bg: #f0f0f0;
+  --button-primary-bg: #4e85f2;
+  --button-primary-text: #ffffff;
+  --button-secondary-bg: #ddd;
+  --button-secondary-text: #222;
+}
+
+[data-theme="dark"] {
+  --background: #333333;
+  --text: #ffffff;
+  --card-background: #444444;
+  --card-border: #666666;
+  --header-bg: #222222;
+  --footer-bg: #222222;
+  --button-primary-bg: #2d5fe4;
+  --button-primary-text: #ffffff;
+  --button-secondary-bg: #555555;
+  --button-secondary-text: #eeeeee;
+}

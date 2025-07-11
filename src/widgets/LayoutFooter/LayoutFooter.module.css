@@ -1,10 +1,12 @@
 .footer {
-  background: #f0f0f0;
+  background: var(--footer-bg);
   padding: 20px;
   text-align: center;
+  transition: all 0.2s ease;
 }
 
 .text {
   font-size: 1em;
   margin: 0;
+  color: var(--text);
 }

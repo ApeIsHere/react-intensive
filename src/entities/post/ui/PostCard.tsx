@@ -7,10 +7,10 @@ type PostCardProps = {
 
 function PostCard({ title, content }: PostCardProps) {
   return (
-    <div className={styles.card}>
+    <li className={styles.card}>
       <h3 className={styles.title}>{title}</h3>
       <p className={styles.content}>{content}</p>
-    </div>
+    </li>
   );
 }
 
