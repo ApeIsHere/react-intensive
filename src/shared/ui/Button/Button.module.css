@@ -4,7 +4,20 @@
   border-radius: 6px;
   cursor: pointer;
   font-weight: 500;
-  transition: all 0.2s ease-in-out;
+}
+
+.button:hover {
+  box-shadow: 0 0 0 3px rgba(78, 133, 242, 0.4);
+}
+
+.button:active {
+  transform: translateY(1px);
+  box-shadow: none;
+}
+
+.button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(78, 133, 242, 0.4);
 }
 
 .primary {
