@@ -6,7 +6,12 @@ function ThemeSwitcher() {
   const { theme, toggleTheme } = useTheme();
 
   return (
-    <Button className={styles.toggle} onClick={toggleTheme} aria-label="Toggle theme">
+    <Button
+      className={styles.toggle}
+      onClick={toggleTheme}
+      aria-label="Toggle theme"
+      variant="secondary"
+    >
       {theme === "light" ? "Dark 🌙" : "Light ☀️"}
     </Button>
   );
