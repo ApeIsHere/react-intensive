@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import styles from "./PostCard.module.css";
 import type { Post } from "../model/types";
 import Tippy from "@tippyjs/react";
+import styles from "./PostCard.module.css";
 
 type PostCardProps = {
   post: Post;
