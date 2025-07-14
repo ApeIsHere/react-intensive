@@ -1,9 +1,10 @@
-import ReactDOM from "react-dom";
-import { useEffect, type ReactNode } from "react";
+import { createPortal } from "react-dom";
+import { type ReactNode } from "react";
 import styles from "./Modal.module.css";
 import Header from "./ui/Header";
 import Body from "./ui/Body";
 import Footer from "./ui/Fotter";
+import { useModalBehavior } from "../../hooks/useModalBehaviour";
 
 type ModalProps = {
   children: ReactNode;
@@ -11,26 +12,21 @@ type ModalProps = {
   onClose: () => void;
 };
 
+type ModalCompoundProps = {
+  children: ReactNode;
+};
+
+// Получаем контейнер для модалки
+const modalRoot = document.getElementById("modal-root");
+
 function Modal({ children, isOpen, onClose }: ModalProps) {
-  // Закрываем модалку на Escape
-  useEffect(() => {
-    if (!isOpen) return;
-
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") {
-        onClose();
-      }
-    };
-
-    window.addEventListener("keydown", handleKeyDown);
-    return () => {
-      window.removeEventListener("keydown", handleKeyDown);
-    };
-  }, [isOpen, onClose]);
+  // Активируем закрытие на Esc и Scroll-lock страницы
+  useModalBehavior(isOpen, onClose);
 
   if (!isOpen) return null;
+  if (!modalRoot) return null;
 
-  return ReactDOM.createPortal(
+  return createPortal(
     <div className={styles.overlay} onClick={onClose}>
       <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
         <button className={styles.close} onClick={onClose}>
@@ -39,7 +35,7 @@ function Modal({ children, isOpen, onClose }: ModalProps) {
         {children}
       </div>
     </div>,
-    document.body
+    modalRoot
   );
 }
 

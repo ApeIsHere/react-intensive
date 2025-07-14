@@ -1,13 +1,13 @@
 .postLink {
   text-decoration: none;
   color: inherit;
-  padding: 5px;
+  padding: 5px 10px;
   border-radius: 6px;
   transition: box-shadow 0.2s ease;
 }
 
 .postLink:hover {
-  box-shadow: 0 0 0 1px var(--accent-color);
+  box-shadow: 0 0 5px 1px var(--accent-color);
 }
 
 .card {
@@ -33,11 +33,11 @@
 .author {
   text-decoration: none;
   color: inherit;
-  padding: 5px;
+  padding: 5px 10px;
   border-radius: 6px;
   transition: box-shadow 0.2s ease;
 }
 
 .author:hover {
-  box-shadow: 0 0 0 1px var(--accent-color);
+  box-shadow: 0 0 5px 1px var(--accent-color);
 }
