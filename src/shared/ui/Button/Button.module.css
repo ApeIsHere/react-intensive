@@ -29,6 +29,20 @@
   background-color: var(--button-secondary-hover-bg);
 }
 
+.rounded {
+  padding: 6px 10px;
+  border-radius: 20px;
+  background-color: var(--background);
+  border: 1px solid var(--text);
+  color: var(--text);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.rounded:hover {
+  background-color: var(--button-secondary-hover-bg);
+}
+
 .success {
   background-color: #46a446;
   color: #fff;

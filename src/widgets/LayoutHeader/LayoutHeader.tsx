@@ -3,6 +3,7 @@ import ThemeSwitcher from "../../features/ThemeSwitcher/ui/ThemeSwitcher";
 import Button from "../../shared/ui/Button";
 import Modal from "../../shared/ui/Modal";
 import styles from "./LayoutHeader.module.css";
+import { Link } from "react-router-dom";
 
 function LayoutHeader() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -13,12 +14,19 @@ function LayoutHeader() {
   return (
     <header className={styles.header}>
       <p className={styles.text}>The most fascinating app in the world</p>
-      <span className={styles.switch}>
-        <ThemeSwitcher />
-      </span>
-      <Button variant="secondary" onClick={openModal}>
-        About
-      </Button>
+      <div className={styles.side}>
+        <span className={styles.theme}>
+          <ThemeSwitcher />
+        </span>
+
+        <Link to="/" className={styles.home}>
+          <Button variant="rounded">Home</Button>
+        </Link>
+
+        <Button variant="rounded" onClick={openModal}>
+          About
+        </Button>
+      </div>
 
       <Modal isOpen={isModalOpen} onClose={closeModal}>
         <Modal.Header>О проекте</Modal.Header>

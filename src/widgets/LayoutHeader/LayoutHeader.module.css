@@ -1,4 +1,5 @@
 .header {
+  display: flex;
   background: var(--header-bg);
   padding: 20px;
   text-align: center;
@@ -12,8 +13,16 @@
   flex: 1;
 }
 
-.switch {
-  position: absolute;
-  top: 20px;
-  right: 20px;
+.side {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.side button {
+  width: 75px;
+}
+
+.theme {
+  margin-bottom: 10px;
 }
