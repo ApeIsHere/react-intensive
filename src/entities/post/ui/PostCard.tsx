@@ -19,7 +19,7 @@ function PostCard({ post }: PostCardProps) {
           arrow={true}
           theme="accented"
         >
-          <Link to={`posts/${postId}`} className={`${styles.postLink} ${styles.title}`}>
+          <Link to={`/posts/${postId}`} className={`${styles.postLink} ${styles.title}`}>
             {title}
           </Link>
         </Tippy>
