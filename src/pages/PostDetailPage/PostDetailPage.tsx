@@ -3,22 +3,29 @@ import usePosts from "../../features/PostList/model/hooks/usePosts";
 import styles from "./PostDetailPage.module.css";
 import PostCard from "../../entities/post/ui/PostCard";
 import CommentCard from "../../entities/comment/ui/CommentCard";
+import { useMemo } from "react";
 
 function PostDetailPage() {
   const { id } = useParams(); // post id
   const { posts, comments, isLoading } = usePosts();
 
   const post = posts.find((p) => p.postId === Number(id));
+  // если комментов много лучше оптимизировать через useMemo, фильтруем только если нашелся пост
+  const postComments = useMemo(() => {
+    if (!post) return [];
+    return comments.filter((c) => c.postId === post.postId);
+  }, [comments, post]);
 
+  // guard clases
   if (isLoading) {
     return <div className={styles.loading}>Loading post...</div>;
   }
 
+  if (!id) return <div>Post ID not found</div>;
+
   if (!post) {
     return <div className={styles.error}>Post not found</div>;
   }
-
-  const postComments = comments.filter((c) => c.postId === post?.postId);
 
   return (
     <>
