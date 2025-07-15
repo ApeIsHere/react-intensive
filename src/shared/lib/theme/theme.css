@@ -2,7 +2,7 @@
   --accent-color: #4f46e5;
   --background: #f9fafb;
   --text: #1e2939;
-  --text-secondary: #99a1af;
+  --text-secondary: #6a7282;
   --card-background: #fff;
   --border-color: #e5e7eb;
   --layer-bg: #fff;
@@ -23,7 +23,7 @@
 }
 
 [data-theme="dark"] {
-  --accent-color: #4f46e5;
+  --accent-color: #3b82f6;
   --background: #1c1f26;
   --text: #f4f6f9;
   --text-secondary: #99a1af;

@@ -4,5 +4,9 @@
 }
 
 .label {
+  color: var(--text-secondary);
+}
+
+.value {
   color: var(--text);
 }

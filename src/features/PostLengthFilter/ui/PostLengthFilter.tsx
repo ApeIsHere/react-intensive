@@ -14,7 +14,7 @@ function PostLengthFilter({ value, onLengthChange }: PostLengthFilterProps) {
   return (
     <div className={styles.container}>
       <label htmlFor="title_length" className={styles.label}>
-        Title Length: <strong>{value}</strong>
+        Title Length: <strong className={styles.value}>{value}</strong>
       </label>
       <input
         type="range"

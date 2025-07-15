@@ -25,13 +25,14 @@
   border-radius: 20px;
   background-color: var(--background);
   border: 1px solid var(--border-color);
-  color: var(--text);
+  color: var(--text-secondary);
   cursor: pointer;
   transition: all 0.2s ease;
 }
 
 .secondary:hover {
   background-color: var(--button-secondary-hover-bg);
+  color: var(--text);
 }
 
 .success {
