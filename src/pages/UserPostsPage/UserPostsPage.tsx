@@ -1,5 +1,27 @@
+import { useParams } from "react-router-dom";
+import usePosts from "../../features/PostList/model/hooks/usePosts";
+import PostListWithLoading from "../../widgets/PostList/PostListWithLoading";
+import styles from "./UserPostsPage.module.css";
+
 function UserPostsPage() {
-  return <div>User's Posts Here</div>;
+  const { id } = useParams(); //user id
+  const { posts, comments, isLoading } = usePosts();
+
+  const userPosts = posts.filter((post) => post.userId === Number(id));
+  const authorName = userPosts[0]?.userName ?? "unknown user";
+
+  if (!userPosts) {
+    return <div className={styles.error}>Posts not found</div>;
+  }
+
+  return (
+    <PostListWithLoading
+      posts={userPosts}
+      comments={comments}
+      isLoading={isLoading}
+      title={`Posts by ${authorName}`}
+    />
+  );
 }
 
 export default UserPostsPage;

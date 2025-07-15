@@ -11,9 +11,10 @@ import { MAX_TITLE_LENGTH } from "../../shared/constants/constants";
 type PostListProps = {
   posts: Post[];
   comments: Comment[];
+  title?: string;
 };
 
-function PostList({ posts, comments }: PostListProps) {
+function PostList({ posts, comments, title = "Posts" }: PostListProps) {
   const [maxTitleLength, setMaxTitleLength] = useState(MAX_TITLE_LENGTH);
   const filtredPosts = useMemo(
     () => filterByLength(posts, maxTitleLength),
@@ -23,7 +24,7 @@ function PostList({ posts, comments }: PostListProps) {
   return (
     <div className={styles.container}>
       <div className={styles.title_wrapper}>
-        <h1 className={styles.title}>Posts</h1>
+        <h1 className={styles.title}>{title}</h1>
         <PostLengthFilter value={maxTitleLength} onLengthChange={setMaxTitleLength} />
       </div>
       <ul>
