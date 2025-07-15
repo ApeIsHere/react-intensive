@@ -27,7 +27,7 @@ function UserPostsPage() {
       posts={userPosts}
       comments={comments}
       isLoading={isLoading}
-      title={`Posts by ${authorName}`}
+      title={`${authorName} posts`}
     />
   );
 }

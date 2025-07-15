@@ -12,7 +12,7 @@ function LayoutHeader() {
 
   return (
     <header className={styles.header}>
-      <h2 className={styles.title}>The most fascinating app in the world</h2>
+      <h1 className={styles.title}>The most fascinating app in the world</h1>
       <div className={styles.side}>
         <span className={styles.theme}>
           <ThemeSwitcher />
