@@ -22,7 +22,7 @@ function PostList({ posts, comments, title = "Posts" }: PostListProps) {
   );
 
   return (
-    <div className={styles.container}>
+    <>
       <div className={styles.title_wrapper}>
         <h1 className={styles.title}>{title}</h1>
         <PostLengthFilter value={maxTitleLength} onLengthChange={setMaxTitleLength} />
@@ -35,7 +35,7 @@ function PostList({ posts, comments, title = "Posts" }: PostListProps) {
           </React.Fragment>
         ))}
       </ul>
-    </div>
+    </>
   );
 }
 
