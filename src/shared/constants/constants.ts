@@ -1,4 +1,5 @@
-// Заглушка
+export const MAX_TITLE_LENGTH = 40;
+
 export const mockPosts = [
   {
     postId: 1,
@@ -131,4 +132,232 @@ export const mockComments = [
   },
 ];
 
-export const MAX_TITLE_LENGTH = 40;
+export const mockTodos = [
+  { id: 1, userId: 11, title: "Buy existential ficus", completed: false },
+  { id: 2, userId: 11, title: "Read productivity hacks", completed: true },
+  { id: 3, userId: 11, title: "Refactor nap time logic", completed: false },
+  { id: 4, userId: 22, title: "Take doglover quiz again", completed: false },
+  { id: 5, userId: 22, title: "Water office jungle", completed: true },
+  { id: 6, userId: 22, title: "Debug plant empathy mode", completed: false },
+  { id: 7, userId: 33, title: "Inspect shitpump machine", completed: false },
+  { id: 8, userId: 33, title: "File existential complaint", completed: true },
+  { id: 9, userId: 33, title: "Host maintenance poetry slam", completed: false },
+  { id: 10, userId: 11, title: "Write nap manifesto", completed: true },
+  { id: 11, userId: 22, title: "Add fertilizer to HR strategy", completed: false },
+  { id: 12, userId: 33, title: "Clean philosophical filter tank", completed: true },
+  { id: 13, userId: 11, title: "Attend soft pillow design sprint", completed: false },
+  { id: 14, userId: 22, title: "Propagate leadership via cuttings", completed: true },
+  { id: 15, userId: 33, title: "Replace worn-out pipeline dreams", completed: true },
+];
+
+export const mockAlbums = [
+  { id: 1, userId: 11, title: "Sleepy Memories" },
+  { id: 2, userId: 22, title: "Plant Vibes Only" },
+  { id: 3, userId: 33, title: "Pipes and Dreams" },
+  { id: 4, userId: 11, title: "Midnap Crisis" },
+  { id: 5, userId: 22, title: "Leaf & Let Die" },
+  { id: 6, userId: 33, title: "Rust & Roses" },
+  { id: 7, userId: 11, title: "JavaScript siestas" },
+  { id: 8, userId: 22, title: "Fern-tastic Adventures" },
+  { id: 9, userId: 33, title: "Underground Aspirations" },
+];
+
+export const mockPhotos = [
+  {
+    albumId: 1,
+    id: 101,
+    title: "Afternoon Nap Setup",
+    url: "https://picsum.photos/600",
+    thumbnailUrl: "https://picsum.photos/150",
+  },
+  {
+    albumId: 1,
+    id: 102,
+    title: "Sleeping Sofa with Debug Console",
+    url: "https://picsum.photos/600",
+    thumbnailUrl: "https://picsum.photos/150",
+  },
+  {
+    albumId: 1,
+    id: 103,
+    title: "Dream Manifesto Doodles",
+    url: "https://picsum.photos/600",
+    thumbnailUrl: "https://picsum.photos/150",
+  },
+
+  {
+    albumId: 2,
+    id: 201,
+    title: "Monstera in Corporate Cage",
+    url: "https://picsum.photos/600",
+    thumbnailUrl: "https://picsum.photos/150",
+  },
+  {
+    albumId: 2,
+    id: 202,
+    title: "Succulent Strategy Meeting",
+    url: "https://picsum.photos/600",
+    thumbnailUrl: "https://picsum.photos/150",
+  },
+  {
+    albumId: 2,
+    id: 203,
+    title: "Weekly Photosynthesis Sync",
+    url: "https://picsum.photos/600",
+    thumbnailUrl: "https://picsum.photos/150",
+  },
+
+  {
+    albumId: 3,
+    id: 301,
+    title: "Pipes Under Moonlight",
+    url: "https://picsum.photos/600",
+    thumbnailUrl: "https://picsum.photos/150",
+  },
+  {
+    albumId: 3,
+    id: 302,
+    title: "Maintenance Drill Symphony",
+    url: "https://picsum.photos/600",
+    thumbnailUrl: "https://picsum.photos/150",
+  },
+  {
+    albumId: 3,
+    id: 303,
+    title: "Industrial Reflection",
+    url: "https://picsum.photos/600",
+    thumbnailUrl: "https://picsum.photos/150",
+  },
+
+  {
+    albumId: 4,
+    id: 401,
+    title: "Early Nap Prototype",
+    url: "https://picsum.photos/600",
+    thumbnailUrl: "https://picsum.photos/150",
+  },
+  {
+    albumId: 4,
+    id: 402,
+    title: "Dream Logic Blueprint",
+    url: "https://picsum.photos/600",
+    thumbnailUrl: "https://picsum.photos/150",
+  },
+  {
+    albumId: 4,
+    id: 403,
+    title: "Snore Calibration Console",
+    url: "https://picsum.photos/600",
+    thumbnailUrl: "https://picsum.photos/150",
+  },
+
+  {
+    albumId: 5,
+    id: 501,
+    title: "Plant in Strategic Bloom",
+    url: "https://picsum.photos/600",
+    thumbnailUrl: "https://picsum.photos/150",
+  },
+  {
+    albumId: 5,
+    id: 502,
+    title: "Leaf Blower Philosophy",
+    url: "https://picsum.photos/600",
+    thumbnailUrl: "https://picsum.photos/150",
+  },
+  {
+    albumId: 5,
+    id: 503,
+    title: "Root Cause Analysis",
+    url: "https://picsum.photos/600",
+    thumbnailUrl: "https://picsum.photos/150",
+  },
+
+  {
+    albumId: 6,
+    id: 601,
+    title: "Rusty Dream Chamber",
+    url: "https://picsum.photos/600",
+    thumbnailUrl: "https://picsum.photos/150",
+  },
+  {
+    albumId: 6,
+    id: 602,
+    title: "Pipe Dream Recital",
+    url: "https://picsum.photos/600",
+    thumbnailUrl: "https://picsum.photos/150",
+  },
+  {
+    albumId: 6,
+    id: 603,
+    title: "Valve Sonata in C Minor",
+    url: "https://picsum.photos/600",
+    thumbnailUrl: "https://picsum.photos/150",
+  },
+
+  {
+    albumId: 7,
+    id: 701,
+    title: "Debug Pillow Talk",
+    url: "https://picsum.photos/600",
+    thumbnailUrl: "https://picsum.photos/150",
+  },
+  {
+    albumId: 7,
+    id: 702,
+    title: "Code-Driven Siesta",
+    url: "https://picsum.photos/600",
+    thumbnailUrl: "https://picsum.photos/150",
+  },
+  {
+    albumId: 7,
+    id: 703,
+    title: "Silent Stack Overflow",
+    url: "https://picsum.photos/600",
+    thumbnailUrl: "https://picsum.photos/150",
+  },
+
+  {
+    albumId: 8,
+    id: 801,
+    title: "HR Succulent Summit",
+    url: "https://picsum.photos/600",
+    thumbnailUrl: "https://picsum.photos/150",
+  },
+  {
+    albumId: 8,
+    id: 802,
+    title: "Plant Governance Framework",
+    url: "https://picsum.photos/600",
+    thumbnailUrl: "https://picsum.photos/150",
+  },
+  {
+    albumId: 8,
+    id: 803,
+    title: "Botanical Budget Review",
+    url: "https://picsum.photos/600",
+    thumbnailUrl: "https://picsum.photos/150",
+  },
+
+  {
+    albumId: 9,
+    id: 901,
+    title: "Hidden Reservoir Poetry",
+    url: "https://picsum.photos/600",
+    thumbnailUrl: "https://picsum.photos/150",
+  },
+  {
+    albumId: 9,
+    id: 902,
+    title: "Underground Aspirations",
+    url: "https://picsum.photos/600",
+    thumbnailUrl: "https://picsum.photos/150",
+  },
+  {
+    albumId: 9,
+    id: 903,
+    title: "Mud and Philosophy",
+    url: "https://picsum.photos/600",
+    thumbnailUrl: "https://picsum.photos/150",
+  },
+];
