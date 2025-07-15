@@ -24,7 +24,7 @@ function PostList({ posts, comments, title = "Posts" }: PostListProps) {
   return (
     <>
       <div className={styles.title_wrapper}>
-        <h1 className={styles.title}>{title}</h1>
+        <h2 className={styles.title}>{title}</h2>
         <PostLengthFilter value={maxTitleLength} onLengthChange={handleLengthChange} />
       </div>
       <ul>
