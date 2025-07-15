@@ -21,25 +21,16 @@
 }
 
 .secondary {
-  background-color: var(--button-secondary-bg);
-  color: var(--button-secondary-text);
-}
-
-.secondary:hover {
-  background-color: var(--button-secondary-hover-bg);
-}
-
-.rounded {
   padding: 6px 10px;
   border-radius: 20px;
   background-color: var(--background);
-  border: 1px solid var(--text);
+  border: 1px solid var(--border-color);
   color: var(--text);
   cursor: pointer;
   transition: all 0.2s ease;
 }
 
-.rounded:hover {
+.secondary:hover {
   background-color: var(--button-secondary-hover-bg);
 }
 

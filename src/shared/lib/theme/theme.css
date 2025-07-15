@@ -1,11 +1,11 @@
 [data-theme="light"] {
-  --accent-color: #3f74d7;
-  --background: #fefefe;
-  --text: #222222;
-  --card-background: #f5f7fa;
-  --card-border: #dce1e7;
-  --header-bg: #e8ecf1;
-  --footer-bg: #e8ecf1;
+  --accent-color: #4f46e5;
+  --background: #f9fafb;
+  --text: #1e2939;
+  --text-secondary: #99a1af;
+  --card-background: #fff;
+  --border-color: #e5e7eb;
+  --layer-bg: #fff;
 
   /* Primary */
   --button-primary-bg: #3f74d7;
@@ -14,8 +14,6 @@
   --button-primary-active-bg: #284c97;
 
   /* Secondary */
-  --button-secondary-bg: #e3e7ec;
-  --button-secondary-text: #333333;
   --button-secondary-hover-bg: #d0d6dd;
   --button-secondary-active-bg: #bec6cf;
 
@@ -25,13 +23,13 @@
 }
 
 [data-theme="dark"] {
-  --accent-color: #508df1;
+  --accent-color: #4f46e5;
   --background: #1c1f26;
   --text: #f4f6f9;
+  --text-secondary: #99a1af;
   --card-background: #2a2f38;
-  --card-border: #3c4450;
-  --header-bg: #181b20;
-  --footer-bg: #181b20;
+  --border-color: #3c4450;
+  --layer-bg: #181b20;
 
   /* Primary */
   --button-primary-bg: #508df1;
@@ -40,8 +38,6 @@
   --button-primary-active-bg: #345fa3;
 
   /* Secondary */
-  --button-secondary-bg: #3a3f48;
-  --button-secondary-text: #f4f6f9;
   --button-secondary-hover-bg: #4a505c;
   --button-secondary-active-bg: #59606e;
 

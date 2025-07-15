@@ -27,7 +27,7 @@ function PostCard({ post }: PostCardProps) {
       </h3>
       <p className={styles.content}>{content}</p>
       <p>
-        Author:{" "}
+        <span className={styles.authorTitle}>Author: </span>
         <Tippy
           content={`Show posts by: ${userName}`}
           placement="bottom"

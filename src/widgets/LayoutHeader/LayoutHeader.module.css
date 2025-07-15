@@ -1,22 +1,20 @@
 .header {
+  position: sticky;
+  top: 0;
   display: flex;
-  background: var(--header-bg);
-  padding: 20px;
   text-align: center;
-  font-size: 1.5rem;
   color: var(--text);
   transition: all 0.2s ease;
-  position: relative;
 }
 
-.text {
+.title {
+  font-size: 2rem;
   flex: 1;
 }
 
 .side {
   display: flex;
   flex-direction: column;
-  gap: 2px;
 }
 
 .side button {
