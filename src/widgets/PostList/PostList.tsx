@@ -10,6 +10,7 @@ import { filterByLength } from "../../features/PostLengthFilter/lib/filterByLeng
 type PostListProps = {
   posts: Post[];
   comments: Comment[];
+  title?: string;
 };
 
 function PostList({ posts, comments }: PostListProps) {

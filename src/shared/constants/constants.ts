@@ -11,7 +11,7 @@ export const mockPosts = [
     postId: 2,
     title: "Take the ultimate Quiz",
     content: "The survey that shows you if you're a doglover or a dogeater",
-    userName: "QuizMeister500",
+    userName: "LeafMeAlone",
     userId: 22,
   },
   {
@@ -26,21 +26,21 @@ export const mockPosts = [
     title: "Office Plants and Existential Dread",
     content: "How my ficus helped me survive corporate meetings",
     userName: "LeafMeAlone",
-    userId: 44,
+    userId: 22,
   },
   {
     postId: 5,
     title: "The Day I Ate Code",
     content: "When JavaScript took over my lunch break",
-    userName: "ByteBiter",
-    userId: 55,
+    userName: "SleepySocrates",
+    userId: 11,
   },
   {
     postId: 6,
     title: "Midnight Thoughts at 3 PM",
     content: "A reflective rant on productivity hacks and why none of them work",
-    userName: "ChronoSloth",
-    userId: 66,
+    userName: "SleepySocrates",
+    userId: 11,
   },
 ];
 

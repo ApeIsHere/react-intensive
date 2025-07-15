@@ -12,10 +12,6 @@ type ModalProps = {
   onClose: () => void;
 };
 
-type ModalCompoundProps = {
-  children: ReactNode;
-};
-
 // Получаем контейнер для модалки
 const modalRoot = document.getElementById("modal-root");
 
