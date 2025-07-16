@@ -16,7 +16,11 @@ function UserAlbumsPage() {
       <ul className={styles.list}>
         {userAlbums.map((album) => (
           <li key={album.id} className={styles.album}>
-            <Link to={`/albums/${album.id}/photos`} className={styles.link}>
+            <Link
+              to={`/albums/${album.id}/photos`}
+              state={album.title}
+              className={styles.link}
+            >
               {album.title}
             </Link>
           </li>
