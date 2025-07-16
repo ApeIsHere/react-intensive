@@ -1,35 +1,41 @@
+import React, { useMemo, useState } from "react";
+import type { Comment } from "../../entities/comment/model/types";
+import type { Post } from "../../entities/post/model/types";
 import PostCard from "../../entities/post/ui/PostCard";
 import styles from "./PostList.module.css";
+import CommentList from "../CommentList/ui/CommentList";
+import PostLengthFilter from "../../features/PostLengthFilter/ui/PostLengthFilter";
+import { filterByLength } from "../../features/PostLengthFilter/lib/filterByLength";
+import { MAX_TITLE_LENGTH } from "../../shared/constants/constants";
 
-// Заглушка
-const mockPosts = [
-  {
-    id: 1,
-    title: "Post 1",
-    content: "Some controversial text regarding benefits of lunch time sleep",
-  },
-  {
-    id: 2,
-    title: "Post 2",
-    content: "The survey that shows you if you're a doglover or a dogeater",
-  },
-  {
-    id: 3,
-    title: "Post 3",
-    content: "40 years like a dream, working on shitpump machine",
-  },
-];
+type PostListProps = {
+  posts: Post[];
+  comments: Comment[];
+  title?: string;
+};
 
-function PostList() {
+function PostList({ posts, comments, title = "Posts" }: PostListProps) {
+  const [maxTitleLength, setMaxTitleLength] = useState(MAX_TITLE_LENGTH);
+  const filtredPosts = useMemo(
+    () => filterByLength(posts, maxTitleLength),
+    [posts, maxTitleLength]
+  );
+
   return (
-    <div className={styles.container}>
-      <h1 className={styles.title}>Posts</h1>
+    <>
+      <div className={styles.title_wrapper}>
+        <h2 className={styles.title}>{title}</h2>
+        <PostLengthFilter value={maxTitleLength} onLengthChange={setMaxTitleLength} />
+      </div>
       <ul>
-        {mockPosts.map((post) => (
-          <PostCard key={post.id} title={post.title} content={post.content} />
+        {filtredPosts.map((post) => (
+          <React.Fragment key={post.postId}>
+            <PostCard post={post} />
+            <CommentList comments={comments.filter((c) => c.postId === post.postId)} />
+          </React.Fragment>
         ))}
       </ul>
-    </div>
+    </>
   );
 }
 

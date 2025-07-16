@@ -1,6 +1,7 @@
-.container {
-  max-width: 800px;
-  margin: 0 auto;
+.title_wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .title {

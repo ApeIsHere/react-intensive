@@ -1,0 +1,19 @@
+.comment {
+  background: var(--card-background);
+  border: 1px solid var(--border-color);
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+  list-style-type: none;
+}
+
+.text {
+  color: var(--text);
+}
+
+.user {
+  font-weight: bold;
+  margin-right: 4px;
+  color: var(--text);
+}

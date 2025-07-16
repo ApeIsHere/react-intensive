@@ -1,6 +1,6 @@
 .footer {
-  background: var(--footer-bg);
-  padding: 20px;
+  position: sticky;
+  bottom: 0;
   text-align: center;
   transition: all 0.2s ease;
 }

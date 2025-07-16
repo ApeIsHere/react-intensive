@@ -6,6 +6,7 @@
   align-items: center;
   justify-content: center;
   z-index: 1000;
+  pointer-events: auto;
 }
 
 .modal {
@@ -17,6 +18,20 @@
   width: 90%;
   position: relative;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+
+.header {
+  text-align: center;
+}
+
+.body {
+  padding: 5px 10px;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
 }
 
 .close {
