@@ -9,7 +9,10 @@ type PostCardProps = {
 };
 
 function PostCard({ post }: PostCardProps) {
-  const { postId, title, content, userName, userId } = post;
+  const { id, title, body, userId } = post;
+  const capitalizedTitle = title.charAt(0).toUpperCase() + title.slice(1);
+  const capitalizedText = body.charAt(0).toUpperCase() + body.slice(1);
+  const userName = "TEMP";
 
   return (
     <li className={styles.card}>
@@ -20,12 +23,12 @@ function PostCard({ post }: PostCardProps) {
           arrow={true}
           theme="accented"
         >
-          <Link to={`/posts/${postId}`} className={`${styles.postLink} ${styles.title}`}>
-            {title}
+          <Link to={`/posts/${id}`} className={`${styles.postLink} ${styles.title}`}>
+            {capitalizedTitle}
           </Link>
         </Tippy>
       </h3>
-      <p className={styles.content}>{content}</p>
+      <p className={styles.content}>{capitalizedText}</p>
       <p>
         <span className={styles.authorTitle}>Author: </span>
         <Tippy

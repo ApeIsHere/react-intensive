@@ -1,15 +1,14 @@
 import { useParams } from "react-router-dom";
-import usePosts from "../../features/PostList/model/hooks/usePosts";
 import styles from "./PostDetailPage.module.css";
 import PostCard from "../../entities/post/ui/PostCard";
 import CommentCard from "../../entities/comment/ui/CommentCard";
+import { useGetPostQuery } from "../../entities/post/api/postsApi";
 
 function PostDetailPage() {
   const { id } = useParams(); // post id
-  const { posts, comments, isLoading } = usePosts();
+  const { data: post, isLoading } = useGetPostQuery(Number(id));
 
-  const post = posts.find((p) => p.postId === Number(id));
-  const postComments = post ? comments.filter((c) => c.postId === post.postId) : [];
+  // const postComments = post ? comments.filter((c) => c.postId === post.postId) : [];
 
   // guard clases
   if (isLoading) {
@@ -48,9 +47,9 @@ function PostDetailPage() {
           </div>
         </div>
       </div>
-      {postComments.map((comment) => (
+      {/* {postComments.map((comment) => (
         <CommentCard key={comment.id} comment={comment} />
-      ))}
+      ))} */}
     </>
   );
 }

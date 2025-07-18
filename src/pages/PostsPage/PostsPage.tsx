@@ -1,9 +1,10 @@
-import usePosts from "../../features/PostList/model/hooks/usePosts";
+import { useGetPostsQuery } from "../../entities/post/api/postsApi";
 import PostListWithLoading from "../../widgets/PostList/PostListWithLoading";
 
 function PostsPage() {
-  const { posts, comments, isLoading } = usePosts();
-  return <PostListWithLoading posts={posts} isLoading={isLoading} comments={comments} />;
+  const { data: posts = [], isLoading } = useGetPostsQuery();
+
+  return <PostListWithLoading posts={posts} isLoading={isLoading} comments={[]} />;
 }
 
 export default PostsPage;

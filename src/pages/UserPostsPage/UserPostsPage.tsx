@@ -1,12 +1,12 @@
 import { useParams } from "react-router-dom";
-import usePosts from "../../features/PostList/model/hooks/usePosts";
 import PostListWithLoading from "../../widgets/PostList/PostListWithLoading";
 import styles from "./UserPostsPage.module.css";
+import { useGetPostsQuery } from "../../entities/post/api/postsApi";
 
 function UserPostsPage() {
   const { id } = useParams(); //user id
-  const { posts, comments, isLoading } = usePosts();
-  console.log(posts);
+  const { data: posts = [], isLoading } = useGetPostsQuery();
+  const comments = []; // TEMP
 
   const userPosts = posts.filter((post) => post.userId === Number(id));
   const authorName = userPosts[0]?.userName ?? "unknown user";
