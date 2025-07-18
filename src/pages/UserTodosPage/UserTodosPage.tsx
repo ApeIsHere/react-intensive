@@ -1,10 +1,16 @@
-import useUserData from "../../features/User/model/hooks/useUserData";
+import { useParams } from "react-router-dom";
+import { useGetTodosQuery } from "../../entities/todos/api/todosApi";
 import styles from "./UserTodosPage.module.css";
 
 function UserTodosPage() {
-  const { userTodos, userName } = useUserData();
+  const { id } = useParams();
+  const userId = Number(id);
+  const { data: userTodos = [], isLoading } = useGetTodosQuery(userId);
+  const userName = "TEMP";
 
   // guard-clause
+  if (isLoading) return <div>Loading albums</div>;
+
   if (!userTodos.length) {
     return <div className={styles.empty}>No todos found for {userName}</div>;
   }
