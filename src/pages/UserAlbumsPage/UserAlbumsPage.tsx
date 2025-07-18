@@ -1,11 +1,17 @@
-import useUserData from "../../features/User/model/hooks/useUserData";
 import AlbumsList from "../../widgets/AlbumsList/AlbumsList";
+import { useGetAlbumsQuery } from "../../entities/albums/api/albumsApi";
 import styles from "./UserAlbumsPage.module.css";
+import { useParams } from "react-router-dom";
 
 function UserAlbumsPage() {
-  const { userAlbums, userName } = useUserData();
+  const { id } = useParams();
+  const userId = Number(id);
+  const { data: userAlbums = [], isLoading } = useGetAlbumsQuery(userId);
+  const userName = "TEMP";
 
   // guard-clause
+  if (isLoading) return <div>Loading albums</div>;
+
   if (!userAlbums.length) {
     return <div className={styles.empty}>No albums found for {userName}</div>;
   }
