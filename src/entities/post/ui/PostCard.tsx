@@ -29,19 +29,25 @@ function PostCard({ post }: PostCardProps) {
         </Tippy>
       </h3>
       <p className={styles.content}>{capitalizedText}</p>
-      <p>
-        <span className={styles.authorTitle}>Author: </span>
-        <Tippy
-          content={`Show posts by: ${userName}`}
-          placement="bottom"
-          arrow={true}
-          theme="accented"
-        >
-          <Link to={`/users/${userId}/posts`} className={styles.author}>
-            {userName}
-          </Link>
-        </Tippy>
-      </p>
+      <div className={styles.author}>
+        <p>
+          <span className={styles.authorTitle}>Author: </span>
+          <Tippy
+            content={`Show posts by: ${userName}`}
+            placement="bottom"
+            arrow={true}
+            theme="accented"
+          >
+            <Link to={`/users/${userId}/posts`} className={styles.authorLabel}>
+              {userName}
+            </Link>
+          </Tippy>
+        </p>
+        <p>
+          <span className={styles.userIdLabel}>User id: </span>
+          <span>{userId}</span>
+        </p>
+      </div>
     </li>
   );
 }
