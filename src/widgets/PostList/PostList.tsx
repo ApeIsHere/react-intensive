@@ -31,7 +31,9 @@ function PostList({ posts, comments, title = "Posts" }: PostListProps) {
         {filtredPosts.map((post) => (
           <React.Fragment key={post.id}>
             <PostCard post={post} />
-            <CommentList comments={comments.filter((c) => c.postId === post.id)} />
+            <CommentList
+              comments={comments.filter((comment) => comment.postId === post.id)}
+            />
           </React.Fragment>
         ))}
       </ul>

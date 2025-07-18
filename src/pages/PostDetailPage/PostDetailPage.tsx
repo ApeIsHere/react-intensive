@@ -3,18 +3,36 @@ import styles from "./PostDetailPage.module.css";
 import PostCard from "../../entities/post/ui/PostCard";
 import CommentCard from "../../entities/comment/ui/CommentCard";
 import { useGetPostQuery } from "../../entities/post/api/postsApi";
+import { useGetCommentsQuery } from "../../entities/comment/api/commentsApi";
+import Button from "../../shared/ui/Button";
 
 function PostDetailPage() {
-  const { id } = useParams(); // post id
-  const { data: post, isLoading } = useGetPostQuery(Number(id));
+  const { id } = useParams();
+  const postId = Number(id);
+  const {
+    data: post,
+    isLoading: isPostLoading,
+    isFetching: isPostFetching,
+    refetch: refetchPost,
+  } = useGetPostQuery(postId);
+  const {
+    data: comments = [],
+    isLoading: isCommentsLoading,
+    isFetching: isCommentsFetching,
+    refetch: refetchComments,
+  } = useGetCommentsQuery(postId);
+  const isLoading = isPostLoading || isCommentsLoading;
+  const isFetching = isPostFetching || isCommentsFetching;
 
-  // const postComments = post ? comments.filter((c) => c.postId === post.postId) : [];
+  const handleClick = () => {
+    refetchPost();
+    refetchComments();
+  };
 
   // guard clases
   if (isLoading) {
     return <div className={styles.loading}>Loading post...</div>;
   }
-
   if (!id) return <div>Post ID not found</div>;
 
   if (!post) {
@@ -23,6 +41,7 @@ function PostDetailPage() {
 
   return (
     <>
+      {isFetching && <div className={styles.loading}>Refreshing post...</div>}
       <PostCard post={post} />
       <div className={styles.container}>
         <div className={styles.body}>
@@ -44,12 +63,17 @@ function PostDetailPage() {
               reprehenderit natus illum libero officia aut corrupti quaerat. Suscipit,
               voluptatibus at.
             </p>
+            <Button className={styles.refetch} onClick={handleClick}>
+              Refresh
+            </Button>
           </div>
         </div>
       </div>
-      {/* {postComments.map((comment) => (
-        <CommentCard key={comment.id} comment={comment} />
-      ))} */}
+      {comments?.length ? (
+        comments.map((comment) => <CommentCard key={comment.id} comment={comment} />)
+      ) : (
+        <div>"There are no comments yet"</div>
+      )}
     </>
   );
 }

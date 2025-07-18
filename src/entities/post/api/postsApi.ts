@@ -3,9 +3,15 @@ import type { Post } from "../model/types";
 
 export const postsApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
-    getPosts: builder.query<Post[], void>({
+    getAllPosts: builder.query<Post[], void>({
       query: () => "/posts",
-      providesTags: ["Posts"],
+      providesTags: (result) =>
+        result
+          ? [
+              ...result.map(({ id }) => ({ type: "Posts" as const, id })),
+              { type: "Posts", id: "LIST" },
+            ]
+          : [{ type: "Posts", id: "LIST" }],
     }),
     getPost: builder.query<Post, number>({
       query: (id) => `/posts/${id}`,
@@ -14,4 +20,4 @@ export const postsApi = baseApi.injectEndpoints({
   overrideExisting: false,
 });
 
-export const { useGetPostsQuery, useGetPostQuery } = postsApi;
+export const { useGetAllPostsQuery, useGetPostQuery } = postsApi;

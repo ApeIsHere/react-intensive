@@ -41,3 +41,8 @@
   color: red;
   padding: 40px;
 }
+
+.refetch {
+  display: block;
+  margin-left: auto;
+}
