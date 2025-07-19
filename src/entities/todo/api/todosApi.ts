@@ -3,7 +3,7 @@ import type { Todo } from "../model/types";
 
 export const todosApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
-    getTodos: builder.query<Todo[], number>({
+    getUserTodos: builder.query<Todo[], number>({
       query: (userId) => `/users/${userId}/todos`,
       providesTags: (result, error, userId) => [{ type: "Todos", id: userId }],
     }),
@@ -11,4 +11,4 @@ export const todosApi = baseApi.injectEndpoints({
   overrideExisting: false,
 });
 
-export const { useGetTodosQuery } = todosApi;
+export const { useGetUserTodosQuery } = todosApi;

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import type { Post } from "../model/types";
 import Tippy from "@tippyjs/react";
 import styles from "./PostCard.module.css";
+import { useGetUserByIdQuery } from "../../user/api/usersApi";
 
 type PostCardProps = {
   post: Post;
@@ -12,7 +13,8 @@ function PostCard({ post }: PostCardProps) {
   const { id, title, body, userId } = post;
   const capitalizedTitle = title.charAt(0).toUpperCase() + title.slice(1);
   const capitalizedText = body.charAt(0).toUpperCase() + body.slice(1);
-  const userName = "TEMP";
+  const { data: user } = useGetUserByIdQuery(userId);
+  const username = user?.username || "unknown user";
 
   return (
     <li className={styles.card}>
@@ -33,13 +35,13 @@ function PostCard({ post }: PostCardProps) {
         <p>
           <span className={styles.authorTitle}>Author: </span>
           <Tippy
-            content={`Show posts by: ${userName}`}
+            content={`Show posts by: ${username}`}
             placement="bottom"
             arrow={true}
             theme="accented"
           >
             <Link to={`/users/${userId}/posts`} className={styles.authorLabel}>
-              {userName}
+              {username}
             </Link>
           </Tippy>
         </p>

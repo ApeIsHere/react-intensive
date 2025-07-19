@@ -1,23 +1,27 @@
 import { useParams } from "react-router-dom";
-import { useGetTodosQuery } from "../../entities/todos/api/todosApi";
+import { useGetUserTodosQuery } from "../../entities/todo/api/todosApi";
 import styles from "./UserTodosPage.module.css";
+import { useGetUserByIdQuery } from "../../entities/user/api/usersApi";
 
 function UserTodosPage() {
   const { id } = useParams();
   const userId = Number(id);
-  const { data: userTodos = [], isLoading } = useGetTodosQuery(userId);
-  const userName = "TEMP";
+  const { data: userTodos = [], isLoading: isTodosLoading } =
+    useGetUserTodosQuery(userId);
+  const { data: user, isLoading: isUserLoading } = useGetUserByIdQuery(userId);
+  const isLoading = isTodosLoading || isUserLoading;
+  const username = user?.username || "unknown user";
 
   // guard-clause
   if (isLoading) return <div>Loading albums</div>;
 
   if (!userTodos.length) {
-    return <div className={styles.empty}>No todos found for {userName}</div>;
+    return <div className={styles.empty}>No todos found for {username}</div>;
   }
 
   return (
     <div>
-      <h2 className={styles.title}>{userName} todos</h2>
+      <h2 className={styles.title}>{username} todos</h2>
       <ul className={styles.list}>
         {userTodos.map((todo) => (
           <li

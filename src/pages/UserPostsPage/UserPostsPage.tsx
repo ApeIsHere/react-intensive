@@ -1,18 +1,19 @@
 import { useParams } from "react-router-dom";
 import PostListWithLoading from "../../widgets/PostList/PostListWithLoading";
 import styles from "./UserPostsPage.module.css";
-import { useGetPostsQuery } from "../../entities/post/api/postsApi";
+import { useGetUserPostsQuery } from "../../entities/post/api/postsApi";
 import { useGetAllCommentsQuery } from "../../entities/comment/api/commentsApi";
+import { useGetUserByIdQuery } from "../../entities/user/api/usersApi";
 
 function UserPostsPage() {
   const { id } = useParams(); //user id
   const userId = Number(id);
-  const { data: posts = [], isLoading: isPostsLoading } = useGetPostsQuery(userId);
+  const { data: userPosts = [], isLoading: isPostsLoading } =
+    useGetUserPostsQuery(userId);
   const { data: comments = [], isLoading: isCommentsLoading } = useGetAllCommentsQuery();
-  const isLoading = isPostsLoading || isCommentsLoading;
-
-  const userPosts = posts.filter((post) => post.userId === Number(id));
-  const authorName = userPosts[0]?.userName ?? "unknown user";
+  const { data: user, isLoading: isUserLoading } = useGetUserByIdQuery(userId);
+  const isLoading = isPostsLoading || isCommentsLoading || isUserLoading;
+  const username = user?.username || "unknown user";
 
   //guard clauses
   if (!id) return <div>User ID not found</div>;
@@ -26,7 +27,7 @@ function UserPostsPage() {
       posts={userPosts}
       comments={comments}
       isLoading={isLoading}
-      title={`${authorName} posts`}
+      title={`${username} posts`}
     />
   );
 }

@@ -8,7 +8,7 @@ export const commentsApi = baseApi.injectEndpoints({
       providesTags: (result) =>
         result ? [{ type: "Comments", id: "LIST" }] : [{ type: "Comments", id: "LIST" }],
     }),
-    getComments: builder.query<Comment[], number>({
+    getPostComments: builder.query<Comment[], number>({
       query: (postId) => `/posts/${postId}/comments`,
       providesTags: (result, error, postId) => [{ type: "Comments", id: postId }],
     }),
@@ -16,4 +16,4 @@ export const commentsApi = baseApi.injectEndpoints({
   overrideExisting: false,
 });
 
-export const { useGetAllCommentsQuery, useGetCommentsQuery } = commentsApi;
+export const { useGetAllCommentsQuery, useGetPostCommentsQuery } = commentsApi;

@@ -13,7 +13,7 @@ export const postsApi = baseApi.injectEndpoints({
             ]
           : [{ type: "Posts", id: "LIST" }],
     }),
-    getPosts: builder.query<Post[], number>({
+    getUserPosts: builder.query<Post[], number>({
       query: (userId) => `/users/${userId}/posts`,
       providesTags: (result, error, userId) => [{ type: "Posts", id: userId }],
     }),
@@ -24,4 +24,4 @@ export const postsApi = baseApi.injectEndpoints({
   overrideExisting: false,
 });
 
-export const { useGetAllPostsQuery, useGetPostsQuery, useGetPostQuery } = postsApi;
+export const { useGetAllPostsQuery, useGetUserPostsQuery, useGetPostQuery } = postsApi;

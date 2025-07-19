@@ -1,9 +1,9 @@
 import { useParams } from "react-router-dom";
+import { useGetPostQuery } from "../../entities/post/api/postsApi";
+import { useGetPostCommentsQuery } from "../../entities/comment/api/commentsApi";
 import styles from "./PostDetailPage.module.css";
 import PostCard from "../../entities/post/ui/PostCard";
 import CommentCard from "../../entities/comment/ui/CommentCard";
-import { useGetPostQuery } from "../../entities/post/api/postsApi";
-import { useGetCommentsQuery } from "../../entities/comment/api/commentsApi";
 import Button from "../../shared/ui/Button";
 
 function PostDetailPage() {
@@ -20,7 +20,7 @@ function PostDetailPage() {
     isLoading: isCommentsLoading,
     isFetching: isCommentsFetching,
     refetch: refetchComments,
-  } = useGetCommentsQuery(postId);
+  } = useGetPostCommentsQuery(postId);
   const isLoading = isPostLoading || isCommentsLoading;
   const isFetching = isPostFetching || isCommentsFetching;
 
