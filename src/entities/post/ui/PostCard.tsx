@@ -1,9 +1,12 @@
 import React from "react";
+import Tippy from "@tippyjs/react";
 import { Link } from "react-router-dom";
 import type { Post } from "../model/types";
-import Tippy from "@tippyjs/react";
+import { useSelector } from "react-redux";
+import type { RootState } from "../../../app/providers/store/store";
+import { selectUserById } from "../../user/model/slice/userSlice";
+import { capitalize } from "../../../shared/lib/string/capitalize";
 import styles from "./PostCard.module.css";
-import { useGetUserByIdQuery } from "../../user/api/usersApi";
 
 type PostCardProps = {
   post: Post;
@@ -11,9 +14,7 @@ type PostCardProps = {
 
 function PostCard({ post }: PostCardProps) {
   const { id, title, body, userId } = post;
-  const capitalizedTitle = title.charAt(0).toUpperCase() + title.slice(1);
-  const capitalizedText = body.charAt(0).toUpperCase() + body.slice(1);
-  const { data: user } = useGetUserByIdQuery(userId);
+  const user = useSelector((state: RootState) => selectUserById(state, userId));
   const username = user?.username || "unknown user";
 
   return (
@@ -26,11 +27,11 @@ function PostCard({ post }: PostCardProps) {
           theme="accented"
         >
           <Link to={`/posts/${id}`} className={`${styles.postLink} ${styles.title}`}>
-            {capitalizedTitle}
+            {capitalize(title)}
           </Link>
         </Tippy>
       </h3>
-      <p className={styles.content}>{capitalizedText}</p>
+      <p className={styles.content}>{capitalize(body)}</p>
       <div className={styles.author}>
         <p>
           <span className={styles.authorTitle}>Author: </span>

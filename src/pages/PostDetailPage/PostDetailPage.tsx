@@ -10,7 +10,7 @@ import type { RootState } from "../../app/providers/store/store";
 import { usePostsInitializer } from "../../shared/hooks/usePostInitializer";
 
 function PostDetailPage() {
-  // load posts to store if the store is empty
+  // load data to store if the store is empty
   usePostsInitializer();
 
   const { id } = useParams();

@@ -6,7 +6,7 @@ import PostListWithLoading from "../../widgets/PostList/PostListWithLoading";
 import { usePostsInitializer } from "../../shared/hooks/usePostInitializer";
 
 function PostsPage() {
-  // load posts to store if the store is empty
+  // load data to store if the store is empty
   usePostsInitializer();
 
   const posts = useSelector(selectAllPosts);

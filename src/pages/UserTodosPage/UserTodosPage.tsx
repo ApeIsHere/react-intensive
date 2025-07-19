@@ -1,16 +1,17 @@
 import { useParams } from "react-router-dom";
 import { useGetUserTodosQuery } from "../../entities/todo/api/todosApi";
 import styles from "./UserTodosPage.module.css";
-import { useGetUserByIdQuery } from "../../entities/user/api/usersApi";
+import { useSelector } from "react-redux";
+import { selectUserById } from "../../entities/user/model/slice/userSlice";
+import type { RootState } from "../../app/providers/store/store";
 
 function UserTodosPage() {
   const { id } = useParams();
   const userId = Number(id);
-  const { data: userTodos = [], isLoading: isTodosLoading } =
-    useGetUserTodosQuery(userId);
-  const { data: user, isLoading: isUserLoading } = useGetUserByIdQuery(userId);
-  const isLoading = isTodosLoading || isUserLoading;
+  const user = useSelector((state: RootState) => selectUserById(state, userId));
   const username = user?.username || "unknown user";
+
+  const { data: userTodos = [], isLoading } = useGetUserTodosQuery(userId);
 
   // guard-clause
   if (isLoading) return <div>Loading albums</div>;
