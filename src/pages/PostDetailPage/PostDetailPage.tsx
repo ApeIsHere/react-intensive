@@ -1,31 +1,29 @@
 import { useParams } from "react-router-dom";
-import { useGetPostQuery } from "../../entities/post/api/postsApi";
 import { useGetPostCommentsQuery } from "../../entities/comment/api/commentsApi";
 import styles from "./PostDetailPage.module.css";
 import PostCard from "../../entities/post/ui/PostCard";
 import CommentCard from "../../entities/comment/ui/CommentCard";
 import Button from "../../shared/ui/Button";
+import { useSelector } from "react-redux";
+import { selectPostById } from "../../entities/post/model/slice/postSlice";
+import type { RootState } from "../../app/providers/store/store";
+import { usePostsInitializer } from "../../shared/hooks/usePostInitializer";
 
 function PostDetailPage() {
+  // load posts to store if the store is empty
+  usePostsInitializer();
+
   const { id } = useParams();
   const postId = Number(id);
-  const {
-    data: post,
-    isLoading: isPostLoading,
-    isFetching: isPostFetching,
-    refetch: refetchPost,
-  } = useGetPostQuery(postId);
+  const post = useSelector((state: RootState) => selectPostById(state, postId));
   const {
     data: comments = [],
-    isLoading: isCommentsLoading,
-    isFetching: isCommentsFetching,
+    isLoading,
+    isFetching,
     refetch: refetchComments,
   } = useGetPostCommentsQuery(postId);
-  const isLoading = isPostLoading || isCommentsLoading;
-  const isFetching = isPostFetching || isCommentsFetching;
 
   const handleClick = () => {
-    refetchPost();
     refetchComments();
   };
 
@@ -41,7 +39,6 @@ function PostDetailPage() {
 
   return (
     <>
-      {isFetching && <div className={styles.loading}>Refreshing post...</div>}
       <PostCard post={post} />
       <div className={styles.container}>
         <div className={styles.body}>
@@ -64,10 +61,11 @@ function PostDetailPage() {
               voluptatibus at.
             </p>
             <Button className={styles.refetch} onClick={handleClick}>
-              Refresh
+              Refresh comments
             </Button>
           </div>
         </div>
+        {isFetching && <div className={styles.loading}>Refreshing comments...</div>}
       </div>
       {comments?.length ? (
         comments.map((comment) => <CommentCard key={comment.id} comment={comment} />)

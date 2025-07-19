@@ -1,11 +1,16 @@
+import { useSelector } from "react-redux";
 import { useGetAllCommentsQuery } from "../../entities/comment/api/commentsApi";
-import { useGetAllPostsQuery } from "../../entities/post/api/postsApi";
+import { selectAllPosts } from "../../entities/post/model/slice/postSlice";
+
 import PostListWithLoading from "../../widgets/PostList/PostListWithLoading";
+import { usePostsInitializer } from "../../shared/hooks/usePostInitializer";
 
 function PostsPage() {
-  const { data: posts = [], isLoading: isPostsLoading } = useGetAllPostsQuery();
-  const { data: comments = [], isLoading: isCommentsLoading } = useGetAllCommentsQuery();
-  const isLoading = isPostsLoading || isCommentsLoading;
+  // load posts to store if the store is empty
+  usePostsInitializer();
+
+  const posts = useSelector(selectAllPosts);
+  const { data: comments = [], isLoading } = useGetAllCommentsQuery();
 
   return <PostListWithLoading posts={posts} isLoading={isLoading} comments={comments} />;
 }

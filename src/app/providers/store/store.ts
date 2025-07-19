@@ -3,8 +3,6 @@ import { baseApi } from "../../../shared/api/baseApi";
 import postReducer from "../../../entities/post/model/slice/postSlice";
 import userReducer from "../../../entities/user/model/slice/userSlice";
 
-export type RootState = ReturnType<typeof store.getState>;
-
 export const store = configureStore({
   reducer: {
     post: postReducer,
@@ -13,3 +11,6 @@ export const store = configureStore({
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(baseApi.middleware),
 });
+
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;
