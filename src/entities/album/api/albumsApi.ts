@@ -7,8 +7,11 @@ export const albumsApi = baseApi.injectEndpoints({
       query: (userId) => `/users/${userId}/albums`,
       providesTags: (result, error, userId) => [{ type: "Albums", id: userId }],
     }),
+    getAlbumById: builder.query<Album, number>({
+      query: (albumId) => `/posts/${albumId}`,
+    }),
   }),
   overrideExisting: false,
 });
 
-export const { useGetUserAlbumsQuery } = albumsApi;
+export const { useGetUserAlbumsQuery, useGetAlbumByIdQuery } = albumsApi;
