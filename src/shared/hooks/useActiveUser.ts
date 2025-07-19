@@ -34,5 +34,11 @@ export const useActiveUser = () => {
     userId !== undefined ? selectUserById(state, userId) : undefined
   );
 
+  // if we are on homepage "/" return undefined
+  const isRelevantRoute = isUserRoute || isPostRoute || isAlbumRoute;
+  if (!isRelevantRoute || idNumber === undefined) {
+    return undefined;
+  }
+
   return user;
 };
