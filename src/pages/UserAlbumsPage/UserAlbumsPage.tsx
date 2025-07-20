@@ -5,6 +5,7 @@ import type { RootState } from "../../app/providers/store/store";
 import { selectUserById } from "../../entities/user/model/slice/userSlice";
 import AlbumsList from "../../widgets/AlbumsList/AlbumsList";
 import styles from "./UserAlbumsPage.module.css";
+import UserAlbumsSkeleton from "../../shared/ui/Skeletons/UserAlbumsSkeleton/UserAlbumsSkeleton";
 
 function UserAlbumsPage() {
   const { id } = useParams();
@@ -15,7 +16,7 @@ function UserAlbumsPage() {
   const { data: userAlbums = [], isLoading } = useGetUserAlbumsQuery(userId);
 
   // guard-clause
-  if (isLoading) return <div>Loading albums</div>;
+  if (isLoading) return <UserAlbumsSkeleton />;
 
   if (!userAlbums.length) {
     return <div className={styles.empty}>No albums found for {username}</div>;

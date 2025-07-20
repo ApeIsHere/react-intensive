@@ -5,6 +5,7 @@ import Modal from "../../shared/ui/Modal";
 import type { Photo } from "../../entities/photo/model/types";
 import PhotoList from "../../widgets/PhotoList/PhotoList";
 import { useGetAlbumPhotosQuery } from "../../entities/photo/api/photosApi";
+import AlbumPhotosSkeleton from "../../shared/ui/Skeletons/AlbumPhotosSkeleton/AlbumPhotosSkeleton";
 
 function AlbumPhotosPage() {
   const [selectedPhoto, setSelectedPhoto] = useState<Photo | null>(null);
@@ -18,7 +19,7 @@ function AlbumPhotosPage() {
   const closeModal = () => setSelectedPhoto(null);
 
   // guard-clause
-  if (isLoading) return <div>Loading Photos...</div>;
+  if (isLoading) return <AlbumPhotosSkeleton />;
 
   if (!albumPhotos.length) {
     return <div className={styles.empty}>No photos found for this album</div>;
@@ -34,15 +35,16 @@ function AlbumPhotosPage() {
       {/* Пока что просто открываем картинки в модалке*/}
       {selectedPhoto && (
         <Modal isOpen={true} onClose={closeModal}>
-          <Modal.Header>{selectedPhoto.title}</Modal.Header>
           <Modal.Body>
             <img
-              src={selectedPhoto.url}
+              // src={selectedPhoto.url}
+              src="https://placehold.co/800x600"
               alt={selectedPhoto.title}
               className={styles.modalImg}
               loading="lazy"
             />
           </Modal.Body>
+          <Modal.Header>{selectedPhoto.title}</Modal.Header>
         </Modal>
       )}
     </>

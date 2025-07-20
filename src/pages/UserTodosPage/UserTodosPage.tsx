@@ -4,6 +4,7 @@ import styles from "./UserTodosPage.module.css";
 import { useSelector } from "react-redux";
 import { selectUserById } from "../../entities/user/model/slice/userSlice";
 import type { RootState } from "../../app/providers/store/store";
+import UserTodosSkeleton from "../../shared/ui/Skeletons/UserTodosSkeleton/UserTodosSkeleton";
 
 function UserTodosPage() {
   const { id } = useParams();
@@ -14,7 +15,7 @@ function UserTodosPage() {
   const { data: userTodos = [], isLoading } = useGetUserTodosQuery(userId);
 
   // guard-clause
-  if (isLoading) return <div>Loading albums</div>;
+  if (isLoading) return <UserTodosSkeleton />;
 
   if (!userTodos.length) {
     return <div className={styles.empty}>No todos found for {username}</div>;

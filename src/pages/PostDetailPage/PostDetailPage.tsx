@@ -8,6 +8,7 @@ import { useSelector } from "react-redux";
 import { selectPostById } from "../../entities/post/model/slice/postSlice";
 import type { RootState } from "../../app/providers/store/store";
 import { usePostsInitializer } from "../../shared/hooks/usePostInitializer";
+import PostDetailSkeleton from "../../shared/ui/Skeletons/PostDetailSkeleton/PostDetailSkeleton";
 
 function PostDetailPage() {
   // load data to store if the store is empty
@@ -29,7 +30,7 @@ function PostDetailPage() {
 
   // guard clases
   if (isLoading) {
-    return <div className={styles.loading}>Loading post...</div>;
+    return <PostDetailSkeleton />;
   }
   if (!id) return <div>Post ID not found</div>;
 
@@ -42,7 +43,7 @@ function PostDetailPage() {
       <PostCard post={post} />
       <div className={styles.container}>
         <div className={styles.body}>
-          <img src="https://picsum.photos/200/360" alt="random" />
+          <img src="https://placehold.co/200x360" alt="random" />
           <div>
             <h3>{post.title}</h3>
             <p>

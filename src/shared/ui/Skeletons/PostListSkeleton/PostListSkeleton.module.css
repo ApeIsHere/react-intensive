@@ -1,4 +1,4 @@
-/* Анимация пульсации */
+/* Pulse animation */
 @keyframes pulse {
   0% {
     opacity: 1;
