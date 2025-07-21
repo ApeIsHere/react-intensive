@@ -1,6 +1,6 @@
 import useUserData from "../../features/User/model/hooks/useUserData";
+import AlbumsList from "../../widgets/AlbumsList/AlbumsList";
 import styles from "./UserAlbumsPage.module.css";
-import { Link } from "react-router-dom";
 
 function UserAlbumsPage() {
   const { userAlbums, userName } = useUserData();
@@ -13,19 +13,7 @@ function UserAlbumsPage() {
   return (
     <div>
       <h2 className={styles.title}>{userName}'s Albums</h2>
-      <ul className={styles.list}>
-        {userAlbums.map((album) => (
-          <li key={album.id} className={styles.album}>
-            <Link
-              to={`/albums/${album.id}/photos`}
-              state={album.title}
-              className={styles.link}
-            >
-              {album.title}
-            </Link>
-          </li>
-        ))}
-      </ul>
+      <AlbumsList albums={userAlbums} />
     </div>
   );
 }
