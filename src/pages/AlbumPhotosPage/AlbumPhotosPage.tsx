@@ -4,7 +4,7 @@ import { mockPhotos } from "../../shared/constants/constants";
 import { useState } from "react";
 import Modal from "../../shared/ui/Modal";
 import type { Photo } from "../../entities/photo/model/types";
-import PhotoCard from "../../entities/photo/ui/PhotoCard";
+import PhotoList from "../../widgets/PhotoList/PhotoList";
 
 function AlbumPhotosPage() {
   const [selectedPhoto, setSelectedPhoto] = useState<Photo | null>(null);
@@ -12,8 +12,7 @@ function AlbumPhotosPage() {
   const { id } = useParams(); // albumId
   const albumId = Number(id);
   const albumPhotos = mockPhotos.filter((photo) => photo.albumId === albumId);
-  const location = useLocation();
-  const albumTitle = location.state;
+  const { state: albumTitle } = useLocation();
 
   const handleClick = (photo: Photo) => setSelectedPhoto(photo);
   const closeModal = () => setSelectedPhoto(null);
@@ -28,11 +27,7 @@ function AlbumPhotosPage() {
       <h2 className={styles.title}>
         {albumTitle ? `${albumTitle} Photos` : "Album Photos"}
       </h2>
-      <div className={styles.grid}>
-        {albumPhotos.map((photo) => (
-          <PhotoCard key={photo.id} photo={photo} onClick={() => handleClick(photo)} />
-        ))}
-      </div>
+      <PhotoList photos={albumPhotos} onPhotoClick={handleClick} />
 
       {/* Пока что просто открываем картинки в модалке*/}
       {selectedPhoto && (
