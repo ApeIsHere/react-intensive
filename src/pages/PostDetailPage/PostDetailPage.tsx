@@ -5,7 +5,6 @@ import PostCard from "../../entities/post/ui/PostCard";
 import CommentCard from "../../entities/comment/ui/CommentCard";
 
 function PostDetailPage() {
-  console.log("🔄 PostDetailPage rendered");
   const { id } = useParams(); // post id
   const { posts, comments, isLoading } = usePosts();
 
