@@ -19,11 +19,15 @@ function PostList({ posts, comments }: PostListProps) {
     [posts, maxTitleLength]
   );
 
+  const handleLengthChange = (length: number) => {
+    setMaxTitleLength(length);
+  };
+
   return (
     <div className={styles.container}>
       <div className={styles.title_wrapper}>
         <h1 className={styles.title}>Posts</h1>
-        <PostLengthFilter value={maxTitleLength} onLengthChange={setMaxTitleLength} />
+        <PostLengthFilter value={maxTitleLength} onLengthChange={handleLengthChange} />
       </div>
       <ul>
         {filtredPosts.map((post) => (
