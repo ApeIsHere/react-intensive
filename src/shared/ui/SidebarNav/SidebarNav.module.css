@@ -1,5 +1,7 @@
 .container {
-  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .nav {
@@ -10,7 +12,7 @@
 }
 
 .link {
-  padding: 10px 16px;
+  padding: 10px 15px;
   color: var(--text-secondary);
   text-decoration: none;
 }

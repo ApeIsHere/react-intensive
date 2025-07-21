@@ -1,0 +1,25 @@
+.container {
+  margin-top: auto;
+  margin-bottom: 25px;
+  padding: 10px 15px;
+  color: var(--text-secondary);
+  text-align: center;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+}
+
+.label {
+  color: var(--text-secondary);
+}
+
+.name {
+  text-decoration: none;
+  color: var(--text);
+  padding: 5px;
+  border-radius: 6px;
+  transition: box-shadow 0.2s ease;
+}
+
+.name:hover {
+  box-shadow: 0 0 5px 1px var(--accent-color);
+}
