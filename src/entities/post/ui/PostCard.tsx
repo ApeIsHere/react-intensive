@@ -7,7 +7,6 @@ type PostCardProps = {
 };
 
 function PostCard({ title, content }: PostCardProps) {
-  console.log("🔄 PostCard rendered:", title);
   return (
     <li className={styles.card}>
       <h3 className={styles.title}>{title}</h3>

@@ -1,15 +1,14 @@
 import ReactDOM from "react-dom";
 import { useEffect, type ReactNode } from "react";
 import styles from "./Modal.module.css";
+import Header from "./ui/Header";
+import Body from "./ui/Body";
+import Footer from "./ui/Fotter";
 
 type ModalProps = {
   children: ReactNode;
   isOpen: boolean;
   onClose: () => void;
-};
-
-type ModalCompoundProps = {
-  children: ReactNode;
 };
 
 function Modal({ children, isOpen, onClose }: ModalProps) {
@@ -44,14 +43,8 @@ function Modal({ children, isOpen, onClose }: ModalProps) {
   );
 }
 
-Modal.Header = ({ children }: ModalCompoundProps) => {
-  return <h2 className={styles.header}>{children}</h2>;
-};
-Modal.Body = ({ children }: ModalCompoundProps) => {
-  return <p className={styles.body}>{children}</p>;
-};
-Modal.Footer = ({ children }: ModalCompoundProps) => {
-  return <div className={styles.footer}>{children}</div>;
-};
+Modal.Header = Header;
+Modal.Body = Body;
+Modal.Footer = Footer;
 
 export default Modal;
