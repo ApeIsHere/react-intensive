@@ -5,14 +5,14 @@ type MainLayoutProps = {
   header: ReactNode;
   content: ReactNode;
   footer: ReactNode;
-  tabs: ReactNode;
+  sidebar: ReactNode;
 };
 
-function MainLayout({ header, content, footer, tabs }: MainLayoutProps) {
+function MainLayout({ header, content, footer, sidebar }: MainLayoutProps) {
   return (
     <div className={styles.page}>
       <div className={styles.header}>{header}</div>
-      <div className={styles.tabs}>{tabs}</div>
+      <div className={styles.sidebar}>{sidebar}</div>
       <main className={styles.content}>
         <div className={styles.contentWrapper}>{content}</div>
       </main>

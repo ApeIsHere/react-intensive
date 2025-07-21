@@ -1,0 +1,22 @@
+.container {
+  padding: 30px 20px;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-align: center;
+}
+
+.link {
+  padding: 10px 16px;
+  color: var(--text-secondary);
+  text-decoration: none;
+}
+
+.active {
+  color: var(--text);
+  font-weight: bold;
+  border-bottom: 2px solid var(--accent-color);
+}
