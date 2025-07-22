@@ -14,10 +14,7 @@ type PostListProps = {
 
 function PostList({ posts, comments }: PostListProps) {
   const [maxTitleLength, setMaxTitleLength] = useState(30);
-  const filtredPosts = useMemo(
-    () => filterByLength(posts, maxTitleLength),
-    [posts, maxTitleLength]
-  );
+  const filtredPosts = filterByLength(posts, maxTitleLength);
 
   const handleLengthChange = (length: number) => {
     setMaxTitleLength(length);
