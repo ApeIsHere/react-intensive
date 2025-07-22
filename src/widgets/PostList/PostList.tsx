@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import type { Comment } from "../../entities/comment/model/types";
 import type { Post } from "../../entities/post/model/types";
 import PostCard from "../../entities/post/ui/PostCard";

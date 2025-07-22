@@ -1,0 +1,16 @@
+.container {
+  display: flex;
+  gap: 10px;
+}
+
+.label {
+  color: var(--text-secondary);
+}
+
+.value {
+  color: var(--text);
+}
+
+.container input[type="range"] {
+  accent-color: var(--accent-color);
+}
