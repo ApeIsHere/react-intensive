@@ -1,6 +1,7 @@
 import styles from "./PhotoList.module.css";
 import PhotoCard from "../../entities/photo/ui/PhotoCard";
 import type { Photo } from "../../entities/photo/model/types";
+import ItemList from "../../shared/ui/ItemList/ItemList";
 
 type PhotoListProps = {
   photos: Photo[];
@@ -9,11 +10,13 @@ type PhotoListProps = {
 
 function PhotoList({ photos, onPhotoClick }: PhotoListProps) {
   return (
-    <div className={styles.grid}>
-      {photos.map((photo) => (
-        <PhotoCard key={photo.id} photo={photo} onClick={() => onPhotoClick(photo)} />
-      ))}
-    </div>
+    <ItemList
+      items={photos}
+      ulClassName={styles.grid}
+      renderItem={(photo) => (
+        <PhotoCard photo={photo} onClick={() => onPhotoClick(photo)} />
+      )}
+    />
   );
 }
 
