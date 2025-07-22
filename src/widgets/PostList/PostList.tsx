@@ -13,7 +13,7 @@ type PostListProps = {
   title?: string;
 };
 
-function PostList({ posts, comments }: PostListProps) {
+function PostList({ posts, comments, title = "Posts" }: PostListProps) {
   const [maxTitleLength, setMaxTitleLength] = useState(30);
   const filtredPosts = filterByLength(posts, maxTitleLength);
 
@@ -24,7 +24,7 @@ function PostList({ posts, comments }: PostListProps) {
   return (
     <>
       <div className={styles.title_wrapper}>
-        <h1 className={styles.title}>Posts</h1>
+        <h1 className={styles.title}>{title}</h1>
         <PostLengthFilter value={maxTitleLength} onLengthChange={handleLengthChange} />
       </div>
       <ul>
