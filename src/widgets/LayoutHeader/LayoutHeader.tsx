@@ -21,12 +21,20 @@ function LayoutHeader() {
       </Button>
 
       <Modal isOpen={isModalOpen} onClose={closeModal}>
-        <h2>О проекте</h2>
-        <p>
+        <Modal.Header>О проекте</Modal.Header>
+        <Modal.Body>
           Это учебное приложение, выполненное в рамках курса React-интенсива от Aston.
           Здесь реализованы переключение темы, модалки через портал, FSD и кастомные
           UI-компоненты.
-        </p>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="success" onClick={closeModal}>
+            Хорошо
+          </Button>
+          <Button variant="danger" onClick={closeModal}>
+            Закрыть
+          </Button>
+        </Modal.Footer>
       </Modal>
     </header>
   );

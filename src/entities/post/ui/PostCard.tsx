@@ -1,3 +1,4 @@
+import React from "react";
 import styles from "./PostCard.module.css";
 
 type PostCardProps = {
@@ -14,4 +15,4 @@ function PostCard({ title, content }: PostCardProps) {
   );
 }
 
-export default PostCard;
+export default React.memo(PostCard);

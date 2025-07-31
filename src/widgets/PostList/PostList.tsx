@@ -1,32 +1,37 @@
+import React, { useState } from "react";
+import type { Comment } from "../../entities/comment/model/types";
+import type { Post } from "../../entities/post/model/types";
 import PostCard from "../../entities/post/ui/PostCard";
 import styles from "./PostList.module.css";
+import CommentList from "../CommentList/ui/CommentList";
+import PostLengthFilter from "../../features/PostLengthFilter/ui/PostLengthFilter";
+import { filterByLength } from "../../features/PostLengthFilter/lib/filterByLength";
 
-// Заглушка
-const mockPosts = [
-  {
-    id: 1,
-    title: "Post 1",
-    content: "Some controversial text regarding benefits of lunch time sleep",
-  },
-  {
-    id: 2,
-    title: "Post 2",
-    content: "The survey that shows you if you're a doglover or a dogeater",
-  },
-  {
-    id: 3,
-    title: "Post 3",
-    content: "40 years like a dream, working on shitpump machine",
-  },
-];
+type PostListProps = {
+  posts: Post[];
+  comments: Comment[];
+};
 
-function PostList() {
+function PostList({ posts, comments }: PostListProps) {
+  const [maxTitleLength, setMaxTitleLength] = useState(30);
+  const filtredPosts = filterByLength(posts, maxTitleLength);
+
+  const handleLengthChange = (length: number) => {
+    setMaxTitleLength(length);
+  };
+
   return (
     <div className={styles.container}>
-      <h1 className={styles.title}>Posts</h1>
+      <div className={styles.title_wrapper}>
+        <h1 className={styles.title}>Posts</h1>
+        <PostLengthFilter value={maxTitleLength} onLengthChange={handleLengthChange} />
+      </div>
       <ul>
-        {mockPosts.map((post) => (
-          <PostCard key={post.id} title={post.title} content={post.content} />
+        {filtredPosts.map((post) => (
+          <React.Fragment key={post.id}>
+            <PostCard title={post.title} content={post.content} />
+            <CommentList comments={comments.filter((c) => c.postId === post.id)} />
+          </React.Fragment>
         ))}
       </ul>
     </div>

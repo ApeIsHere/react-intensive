@@ -1,6 +1,9 @@
 import ReactDOM from "react-dom";
 import { useEffect, type ReactNode } from "react";
 import styles from "./Modal.module.css";
+import Header from "./ui/Header";
+import Body from "./ui/Body";
+import Footer from "./ui/Fotter";
 
 type ModalProps = {
   children: ReactNode;
@@ -39,5 +42,9 @@ function Modal({ children, isOpen, onClose }: ModalProps) {
     document.body
   );
 }
+
+Modal.Header = Header;
+Modal.Body = Body;
+Modal.Footer = Footer;
 
 export default Modal;
