@@ -2,17 +2,21 @@ import type { ReactNode } from "react";
 import styles from "./MainLayout.module.css";
 
 type MainLayoutProps = {
-  children: ReactNode;
   header: ReactNode;
+  content: ReactNode;
   footer: ReactNode;
+  sidebar: ReactNode;
 };
 
-function MainLayout({ children, header, footer }: MainLayoutProps) {
+function MainLayout({ header, content, footer, sidebar }: MainLayoutProps) {
   return (
     <div className={styles.page}>
-      {header}
-      <main className={styles.content}>{children}</main>
-      {footer}
+      <div className={styles.header}>{header}</div>
+      <div className={styles.sidebar}>{sidebar}</div>
+      <main className={styles.content}>
+        <div className={styles.contentWrapper}>{content}</div>
+      </main>
+      <footer className={styles.footer}>{footer}</footer>
     </div>
   );
 }

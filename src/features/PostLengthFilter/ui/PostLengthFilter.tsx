@@ -1,3 +1,4 @@
+import { MAX_TITLE_LENGTH } from "../../../shared/constants/constants";
 import styles from "./PostLenthFilter.module.css";
 
 type PostLengthFilterProps = {
@@ -13,13 +14,13 @@ function PostLengthFilter({ value, onLengthChange }: PostLengthFilterProps) {
   return (
     <div className={styles.container}>
       <label htmlFor="title_length" className={styles.label}>
-        Title Length: <strong>{value}</strong>
+        Title Length: <strong className={styles.value}>{value}</strong>
       </label>
       <input
         type="range"
         id="title_length"
         min="0"
-        max="30"
+        max={MAX_TITLE_LENGTH}
         step="1"
         value={value}
         onChange={handleChange}

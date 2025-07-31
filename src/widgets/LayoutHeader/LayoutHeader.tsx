@@ -12,13 +12,16 @@ function LayoutHeader() {
 
   return (
     <header className={styles.header}>
-      <p className={styles.text}>The most fascinating app in the world</p>
-      <span className={styles.switch}>
-        <ThemeSwitcher />
-      </span>
-      <Button variant="secondary" onClick={openModal}>
-        About
-      </Button>
+      <h1 className={styles.title}>The most fascinating app in the world</h1>
+      <div className={styles.side}>
+        <span className={styles.theme}>
+          <ThemeSwitcher />
+        </span>
+
+        <Button variant="secondary" onClick={openModal}>
+          About
+        </Button>
+      </div>
 
       <Modal isOpen={isModalOpen} onClose={closeModal}>
         <Modal.Header>О проекте</Modal.Header>

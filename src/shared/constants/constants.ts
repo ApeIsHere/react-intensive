@@ -1,0 +1,363 @@
+export const MAX_TITLE_LENGTH = 40;
+
+export const mockPosts = [
+  {
+    postId: 1,
+    title: "To nap or not to nap",
+    content: "Some controversial text regarding benefits of lunch time sleep",
+    userName: "SleepySocrates",
+    userId: 11,
+  },
+  {
+    postId: 2,
+    title: "Take the ultimate Quiz",
+    content: "The survey that shows you if you're a doglover or a dogeater",
+    userName: "LeafMeAlone",
+    userId: 22,
+  },
+  {
+    postId: 3,
+    title: "Living in a dream",
+    content: "40 years like a dream, working on shitpump machine",
+    userName: "PipeDreamer",
+    userId: 33,
+  },
+  {
+    postId: 4,
+    title: "Office Plants and Existential Dread",
+    content: "How my ficus helped me survive corporate meetings",
+    userName: "LeafMeAlone",
+    userId: 22,
+  },
+  {
+    postId: 5,
+    title: "The Day I Ate Code",
+    content: "When JavaScript took over my lunch break",
+    userName: "SleepySocrates",
+    userId: 11,
+  },
+  {
+    postId: 6,
+    title: "Midnight Thoughts at 3 PM",
+    content: "A reflective rant on productivity hacks and why none of them work",
+    userName: "SleepySocrates",
+    userId: 11,
+  },
+];
+
+export const mockComments = [
+  {
+    id: 100,
+    postId: 1,
+    userName: "SleeplessDad_42",
+    body: "Used to sleep like a kid, but mine seems to hate it, I wonder why",
+  },
+  {
+    id: 200,
+    postId: 1,
+    userName: "Napfluencer",
+    body: "My favourite part of a working day",
+  },
+  {
+    id: 300,
+    postId: 2,
+    userName: "BarkBQ",
+    body: "Finally, a quiz that separates the -aww- crowd from the -mmm- crowd",
+  },
+  {
+    id: 400,
+    postId: 2,
+    userName: "SpiceRetriever",
+    body: "I thought I was a dog person until this test asked for my favorite seasoning",
+  },
+  {
+    id: 500,
+    postId: 3,
+    userName: "FlushAndFame",
+    body: "Living the dream, one flush at a time",
+  },
+  {
+    id: 600,
+    postId: 3,
+    userName: "Pumpinator9000",
+    body: "You came, you pumped, you conquered",
+  },
+  {
+    id: 700,
+    postId: 4,
+    userName: "GreenWhisper",
+    body: "My cactus is my only coworker now",
+  },
+  {
+    id: 800,
+    postId: 4,
+    userName: "DeskJungle",
+    body: "Plants > People. Change my mind.",
+  },
+  {
+    id: 900,
+    postId: 4,
+    userName: "FicusTherapist",
+    body: "Same here. Weekly one-on-one with my fern.",
+  },
+  {
+    id: 1000,
+    postId: 5,
+    userName: "ScriptSnacker",
+    body: "I once chewed on a USB cable during deployment stress",
+  },
+  {
+    id: 1100,
+    postId: 5,
+    userName: "CodeVore",
+    body: "Syntax errors taste like regret",
+  },
+  {
+    id: 1200,
+    postId: 6,
+    userName: "HackSloth",
+    body: "Tried Pomodoro, ended up with tomato sauce on my keyboard",
+  },
+  {
+    id: 1300,
+    postId: 6,
+    userName: "TimeBandit",
+    body: "Productivity hacks only work if you ignore reality",
+  },
+  {
+    id: 1400,
+    postId: 6,
+    userName: "3PMPoet",
+    body: "I cry in calendar mode",
+  },
+];
+
+export const mockTodos = [
+  { id: 1, userId: 11, title: "Buy existential ficus", completed: false },
+  { id: 2, userId: 11, title: "Read productivity hacks", completed: true },
+  { id: 3, userId: 11, title: "Refactor nap time logic", completed: false },
+  { id: 4, userId: 22, title: "Take doglover quiz again", completed: false },
+  { id: 5, userId: 22, title: "Water office jungle", completed: true },
+  { id: 6, userId: 22, title: "Debug plant empathy mode", completed: false },
+  { id: 7, userId: 33, title: "Inspect shitpump machine", completed: false },
+  { id: 8, userId: 33, title: "File existential complaint", completed: true },
+  { id: 9, userId: 33, title: "Host maintenance poetry slam", completed: false },
+  { id: 10, userId: 11, title: "Write nap manifesto", completed: true },
+  { id: 11, userId: 22, title: "Add fertilizer to HR strategy", completed: false },
+  { id: 12, userId: 33, title: "Clean philosophical filter tank", completed: true },
+  { id: 13, userId: 11, title: "Attend soft pillow design sprint", completed: false },
+  { id: 14, userId: 22, title: "Propagate leadership via cuttings", completed: true },
+  { id: 15, userId: 33, title: "Replace worn-out pipeline dreams", completed: true },
+];
+
+export const mockAlbums = [
+  { id: 1, userId: 11, title: "Sleepy Memories" },
+  { id: 2, userId: 22, title: "Plant Vibes Only" },
+  { id: 3, userId: 33, title: "Pipes and Dreams" },
+  { id: 4, userId: 11, title: "Midnap Crisis" },
+  { id: 5, userId: 22, title: "Leaf & Let Die" },
+  { id: 6, userId: 33, title: "Rust & Roses" },
+  { id: 7, userId: 11, title: "JavaScript siestas" },
+  { id: 8, userId: 22, title: "Fern-tastic Adventures" },
+  { id: 9, userId: 33, title: "Underground Aspirations" },
+];
+
+export const mockPhotos = [
+  {
+    albumId: 1,
+    id: 101,
+    title: "Afternoon Nap Setup",
+    url: "https://picsum.photos/600",
+    thumbnailUrl: "https://picsum.photos/150",
+  },
+  {
+    albumId: 1,
+    id: 102,
+    title: "Sleeping Sofa with Debug Console",
+    url: "https://picsum.photos/600",
+    thumbnailUrl: "https://picsum.photos/150",
+  },
+  {
+    albumId: 1,
+    id: 103,
+    title: "Dream Manifesto Doodles",
+    url: "https://picsum.photos/600",
+    thumbnailUrl: "https://picsum.photos/150",
+  },
+
+  {
+    albumId: 2,
+    id: 201,
+    title: "Monstera in Corporate Cage",
+    url: "https://picsum.photos/600",
+    thumbnailUrl: "https://picsum.photos/150",
+  },
+  {
+    albumId: 2,
+    id: 202,
+    title: "Succulent Strategy Meeting",
+    url: "https://picsum.photos/600",
+    thumbnailUrl: "https://picsum.photos/150",
+  },
+  {
+    albumId: 2,
+    id: 203,
+    title: "Weekly Photosynthesis Sync",
+    url: "https://picsum.photos/600",
+    thumbnailUrl: "https://picsum.photos/150",
+  },
+
+  {
+    albumId: 3,
+    id: 301,
+    title: "Pipes Under Moonlight",
+    url: "https://picsum.photos/600",
+    thumbnailUrl: "https://picsum.photos/150",
+  },
+  {
+    albumId: 3,
+    id: 302,
+    title: "Maintenance Drill Symphony",
+    url: "https://picsum.photos/600",
+    thumbnailUrl: "https://picsum.photos/150",
+  },
+  {
+    albumId: 3,
+    id: 303,
+    title: "Industrial Reflection",
+    url: "https://picsum.photos/600",
+    thumbnailUrl: "https://picsum.photos/150",
+  },
+
+  {
+    albumId: 4,
+    id: 401,
+    title: "Early Nap Prototype",
+    url: "https://picsum.photos/600",
+    thumbnailUrl: "https://picsum.photos/150",
+  },
+  {
+    albumId: 4,
+    id: 402,
+    title: "Dream Logic Blueprint",
+    url: "https://picsum.photos/600",
+    thumbnailUrl: "https://picsum.photos/150",
+  },
+  {
+    albumId: 4,
+    id: 403,
+    title: "Snore Calibration Console",
+    url: "https://picsum.photos/600",
+    thumbnailUrl: "https://picsum.photos/150",
+  },
+
+  {
+    albumId: 5,
+    id: 501,
+    title: "Plant in Strategic Bloom",
+    url: "https://picsum.photos/600",
+    thumbnailUrl: "https://picsum.photos/150",
+  },
+  {
+    albumId: 5,
+    id: 502,
+    title: "Leaf Blower Philosophy",
+    url: "https://picsum.photos/600",
+    thumbnailUrl: "https://picsum.photos/150",
+  },
+  {
+    albumId: 5,
+    id: 503,
+    title: "Root Cause Analysis",
+    url: "https://picsum.photos/600",
+    thumbnailUrl: "https://picsum.photos/150",
+  },
+
+  {
+    albumId: 6,
+    id: 601,
+    title: "Rusty Dream Chamber",
+    url: "https://picsum.photos/600",
+    thumbnailUrl: "https://picsum.photos/150",
+  },
+  {
+    albumId: 6,
+    id: 602,
+    title: "Pipe Dream Recital",
+    url: "https://picsum.photos/600",
+    thumbnailUrl: "https://picsum.photos/150",
+  },
+  {
+    albumId: 6,
+    id: 603,
+    title: "Valve Sonata in C Minor",
+    url: "https://picsum.photos/600",
+    thumbnailUrl: "https://picsum.photos/150",
+  },
+
+  {
+    albumId: 7,
+    id: 701,
+    title: "Debug Pillow Talk",
+    url: "https://picsum.photos/600",
+    thumbnailUrl: "https://picsum.photos/150",
+  },
+  {
+    albumId: 7,
+    id: 702,
+    title: "Code-Driven Siesta",
+    url: "https://picsum.photos/600",
+    thumbnailUrl: "https://picsum.photos/150",
+  },
+  {
+    albumId: 7,
+    id: 703,
+    title: "Silent Stack Overflow",
+    url: "https://picsum.photos/600",
+    thumbnailUrl: "https://picsum.photos/150",
+  },
+
+  {
+    albumId: 8,
+    id: 801,
+    title: "HR Succulent Summit",
+    url: "https://picsum.photos/600",
+    thumbnailUrl: "https://picsum.photos/150",
+  },
+  {
+    albumId: 8,
+    id: 802,
+    title: "Plant Governance Framework",
+    url: "https://picsum.photos/600",
+    thumbnailUrl: "https://picsum.photos/150",
+  },
+  {
+    albumId: 8,
+    id: 803,
+    title: "Botanical Budget Review",
+    url: "https://picsum.photos/600",
+    thumbnailUrl: "https://picsum.photos/150",
+  },
+
+  {
+    albumId: 9,
+    id: 901,
+    title: "Hidden Reservoir Poetry",
+    url: "https://picsum.photos/600",
+    thumbnailUrl: "https://picsum.photos/150",
+  },
+  {
+    albumId: 9,
+    id: 902,
+    title: "Underground Aspirations",
+    url: "https://picsum.photos/600",
+    thumbnailUrl: "https://picsum.photos/150",
+  },
+  {
+    albumId: 9,
+    id: 903,
+    title: "Mud and Philosophy",
+    url: "https://picsum.photos/600",
+    thumbnailUrl: "https://picsum.photos/150",
+  },
+];

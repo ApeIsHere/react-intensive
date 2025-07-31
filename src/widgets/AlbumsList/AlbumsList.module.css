@@ -1,0 +1,21 @@
+.list {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+.album {
+  padding: 10px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.link {
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.link:hover {
+  color: var(--accent-color);
+}

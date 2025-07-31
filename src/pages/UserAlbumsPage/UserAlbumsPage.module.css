@@ -1,0 +1,10 @@
+.title {
+  color: var(--text);
+}
+
+.empty {
+  font-size: 2rem;
+  margin-top: 30px;
+  text-align: center;
+  color: var(--text-secondary);
+}

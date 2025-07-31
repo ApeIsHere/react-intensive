@@ -10,9 +10,10 @@ import { filterByLength } from "../../features/PostLengthFilter/lib/filterByLeng
 type PostListProps = {
   posts: Post[];
   comments: Comment[];
+  title?: string;
 };
 
-function PostList({ posts, comments }: PostListProps) {
+function PostList({ posts, comments, title = "Posts" }: PostListProps) {
   const [maxTitleLength, setMaxTitleLength] = useState(30);
   const filtredPosts = filterByLength(posts, maxTitleLength);
 
@@ -21,20 +22,20 @@ function PostList({ posts, comments }: PostListProps) {
   };
 
   return (
-    <div className={styles.container}>
+    <>
       <div className={styles.title_wrapper}>
-        <h1 className={styles.title}>Posts</h1>
+        <h1 className={styles.title}>{title}</h1>
         <PostLengthFilter value={maxTitleLength} onLengthChange={handleLengthChange} />
       </div>
       <ul>
         {filtredPosts.map((post) => (
-          <React.Fragment key={post.id}>
-            <PostCard title={post.title} content={post.content} />
-            <CommentList comments={comments.filter((c) => c.postId === post.id)} />
+          <React.Fragment key={post.postId}>
+            <PostCard post={post} />
+            <CommentList comments={comments.filter((c) => c.postId === post.postId)} />
           </React.Fragment>
         ))}
       </ul>
-    </div>
+    </>
   );
 }
 
