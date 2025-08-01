@@ -32,12 +32,10 @@ function AlbumPhotosPage() {
       </h2>
       <PhotoList photos={albumPhotos} onPhotoClick={handleClick} />
 
-      {/* Пока что просто открываем картинки в модалке*/}
       {selectedPhoto && (
         <Modal isOpen={true} onClose={closeModal}>
           <Modal.Body>
             <img
-              // src={selectedPhoto.url}
               src="https://placehold.co/800x600"
               alt={selectedPhoto.title}
               className={styles.modalImg}
