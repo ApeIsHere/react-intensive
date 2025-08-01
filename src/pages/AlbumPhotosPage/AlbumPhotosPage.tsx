@@ -13,9 +13,8 @@ function AlbumPhotosPage() {
   const { id } = useParams(); // albumId
   const albumId = Number(id);
   const { data: albumPhotos = [], isLoading } = useGetAlbumPhotosQuery(albumId);
-  const { state: albumTitle } = useLocation();
-
-  const handleClick = (photo: Photo) => setSelectedPhoto(photo);
+  const { state: albumTitle } = useLocation() as { state: string };
+  const handlePhotoClick = (photo: Photo) => setSelectedPhoto(photo);
   const closeModal = () => setSelectedPhoto(null);
 
   // guard-clause
@@ -30,14 +29,12 @@ function AlbumPhotosPage() {
       <h2 className={styles.title}>
         {albumTitle ? `${albumTitle} Photos` : "Album Photos"}
       </h2>
-      <PhotoList photos={albumPhotos} onPhotoClick={handleClick} />
+      <PhotoList photos={albumPhotos} onPhotoClick={handlePhotoClick} />
 
-      {/* Пока что просто открываем картинки в модалке*/}
       {selectedPhoto && (
         <Modal isOpen={true} onClose={closeModal}>
           <Modal.Body>
             <img
-              // src={selectedPhoto.url}
               src="https://placehold.co/800x600"
               alt={selectedPhoto.title}
               className={styles.modalImg}

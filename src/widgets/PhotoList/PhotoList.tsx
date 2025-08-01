@@ -9,12 +9,14 @@ type PhotoListProps = {
 };
 
 function PhotoList({ photos, onPhotoClick }: PhotoListProps) {
+  const handlePhotoClick = (photo: Photo) => onPhotoClick(photo);
+
   return (
     <ItemList
       items={photos}
       ulClassName={styles.grid}
       renderItem={(photo) => (
-        <PhotoCard photo={photo} onClick={() => onPhotoClick(photo)} />
+        <PhotoCard photo={photo} onClick={() => handlePhotoClick(photo)} />
       )}
     />
   );
