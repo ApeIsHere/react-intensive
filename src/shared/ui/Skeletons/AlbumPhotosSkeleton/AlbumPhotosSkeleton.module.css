@@ -1,0 +1,35 @@
+/* Pulse animation */
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.title {
+  width: 200px;
+  height: 32px;
+  background: var(--border-color);
+  border-radius: 4px;
+  animation: pulse 1.4s infinite ease-in-out;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.card {
+  height: 200px;
+  background: var(--card-background);
+  border-radius: 8px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+  animation: pulse 1.4s infinite ease-in-out;
+}

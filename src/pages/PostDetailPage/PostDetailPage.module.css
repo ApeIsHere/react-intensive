@@ -28,16 +28,14 @@
   color: var(--text);
 }
 
-.loading {
-  text-align: center;
-  font-size: 1.2rem;
-  padding: 40px;
-  color: var(--text);
-}
-
 .error {
   text-align: center;
   font-size: 1.2rem;
   color: red;
   padding: 40px;
+}
+
+.refetch {
+  display: block;
+  margin-left: auto;
 }

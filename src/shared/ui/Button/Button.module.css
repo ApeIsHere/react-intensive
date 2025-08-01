@@ -35,6 +35,10 @@
   color: var(--text);
 }
 
+.secondary:hover {
+  background-color: var(--button-secondary-hover-bg);
+}
+
 .success {
   background-color: #46a446;
   color: #fff;

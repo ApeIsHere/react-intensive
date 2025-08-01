@@ -1,21 +1,37 @@
 import { useParams } from "react-router-dom";
-import usePosts from "../../features/PostList/model/hooks/usePosts";
+import { useGetPostCommentsQuery } from "../../entities/comment/api/commentsApi";
 import styles from "./PostDetailPage.module.css";
 import PostCard from "../../entities/post/ui/PostCard";
 import CommentCard from "../../entities/comment/ui/CommentCard";
+import Button from "../../shared/ui/Button";
+import { useSelector } from "react-redux";
+import { selectPostById } from "../../entities/post/model/slice/postSlice";
+import type { RootState } from "../../app/providers/store/store";
+import { usePostsInitializer } from "../../shared/hooks/usePostInitializer";
+import PostDetailSkeleton from "../../shared/ui/Skeletons/PostDetailSkeleton/PostDetailSkeleton";
 
 function PostDetailPage() {
-  const { id } = useParams(); // post id
-  const { posts, comments, isLoading } = usePosts();
+  // load data to store if the store is empty
+  usePostsInitializer();
 
-  const post = posts.find((p) => p.postId === Number(id));
-  const postComments = post ? comments.filter((c) => c.postId === post.postId) : [];
+  const { id } = useParams();
+  const postId = Number(id);
+  const post = useSelector((state: RootState) => selectPostById(state, postId));
+  const {
+    data: comments = [],
+    isLoading,
+    isFetching,
+    refetch: refetchComments,
+  } = useGetPostCommentsQuery(postId);
+
+  const handleClick = () => {
+    refetchComments();
+  };
 
   // guard clases
   if (isLoading) {
-    return <div className={styles.loading}>Loading post...</div>;
+    return <PostDetailSkeleton />;
   }
-
   if (!id) return <div>Post ID not found</div>;
 
   if (!post) {
@@ -27,7 +43,7 @@ function PostDetailPage() {
       <PostCard post={post} />
       <div className={styles.container}>
         <div className={styles.body}>
-          <img src="https://picsum.photos/200/360" alt="random" />
+          <img src="https://placehold.co/200x360" alt="random" />
           <div>
             <h3>{post.title}</h3>
             <p>
@@ -45,12 +61,18 @@ function PostDetailPage() {
               reprehenderit natus illum libero officia aut corrupti quaerat. Suscipit,
               voluptatibus at.
             </p>
+            <Button className={styles.refetch} onClick={handleClick}>
+              Refresh comments
+            </Button>
           </div>
         </div>
+        {isFetching && <div className={styles.loading}>Refreshing comments...</div>}
       </div>
-      {postComments.map((comment) => (
-        <CommentCard key={comment.id} comment={comment} />
-      ))}
+      {comments?.length ? (
+        comments.map((comment) => <CommentCard key={comment.id} comment={comment} />)
+      ) : (
+        <div>"There are no comments yet"</div>
+      )}
     </>
   );
 }

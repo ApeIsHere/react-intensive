@@ -1,0 +1,29 @@
+/* Pulse animation */
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.postCard {
+  height: 250px;
+  background: var(--card-background);
+  border-radius: 5px;
+  animation: pulse 1.4s infinite ease-in-out;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+  margin-bottom: 20px;
+}
+
+.container {
+  height: 410px;
+  background: var(--card-background);
+  border-radius: 5px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+  animation: pulse 1.4s infinite ease-in-out;
+}

@@ -6,6 +6,7 @@ import styles from "./PostList.module.css";
 import CommentList from "../CommentList/ui/CommentList";
 import PostLengthFilter from "../../features/PostLengthFilter/ui/PostLengthFilter";
 import { filterByLength } from "../../features/PostLengthFilter/lib/filterByLength";
+import { MAX_TITLE_LENGTH } from "../../shared/constants/constants";
 
 type PostListProps = {
   posts: Post[];
@@ -14,7 +15,7 @@ type PostListProps = {
 };
 
 function PostList({ posts, comments, title = "Posts" }: PostListProps) {
-  const [maxTitleLength, setMaxTitleLength] = useState(30);
+  const [maxTitleLength, setMaxTitleLength] = useState(MAX_TITLE_LENGTH);
   const filtredPosts = filterByLength(posts, maxTitleLength);
 
   const handleLengthChange = (length: number) => {
@@ -24,14 +25,16 @@ function PostList({ posts, comments, title = "Posts" }: PostListProps) {
   return (
     <>
       <div className={styles.title_wrapper}>
-        <h1 className={styles.title}>{title}</h1>
+        <h2 className={styles.title}>{title}</h2>
         <PostLengthFilter value={maxTitleLength} onLengthChange={handleLengthChange} />
       </div>
       <ul>
         {filtredPosts.map((post) => (
-          <React.Fragment key={post.postId}>
+          <React.Fragment key={post.id}>
             <PostCard post={post} />
-            <CommentList comments={comments.filter((c) => c.postId === post.postId)} />
+            <CommentList
+              comments={comments.filter((comment) => comment.postId === post.id)}
+            />
           </React.Fragment>
         ))}
       </ul>

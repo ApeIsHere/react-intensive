@@ -1,0 +1,37 @@
+/* Pulse animation */
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.title {
+  width: 200px;
+  height: 32px;
+  background: var(--border-color);
+  border-radius: 4px;
+  animation: pulse 1.4s infinite ease-in-out;
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px;
+  background: var(--card-background);
+  border-radius: 4px;
+  animation: pulse 1.4s infinite ease-in-out;
+  margin-bottom: 15px;
+}

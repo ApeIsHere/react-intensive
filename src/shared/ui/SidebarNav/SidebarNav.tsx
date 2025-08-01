@@ -1,5 +1,6 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import styles from "./SidebarNav.module.css";
+import ActiveUserInfo from "../ActiveUserInfo/ActiveUserInfo";
 
 type Link = {
   to: string;
@@ -30,6 +31,8 @@ function SidebarNav({ links }: SidebarNavProps) {
             )
         )}
       </nav>
+
+      <ActiveUserInfo />
     </aside>
   );
 }

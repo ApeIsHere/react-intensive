@@ -6,11 +6,11 @@ type CommentCardProps = {
 };
 
 function CommentCard({ comment }: CommentCardProps) {
-  const { userName, body } = comment;
+  const { email, body } = comment;
   return (
     <li className={styles.comment}>
       <p className={styles.text}>
-        <span className={styles.user}>{userName}:</span> {body}
+        <span className={styles.user}>{email}:</span> {body}
       </p>
     </li>
   );

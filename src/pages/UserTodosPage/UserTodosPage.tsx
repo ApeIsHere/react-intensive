@@ -1,17 +1,29 @@
-import useUserData from "../../features/User/model/hooks/useUserData";
+import { useParams } from "react-router-dom";
+import { useGetUserTodosQuery } from "../../entities/todo/api/todosApi";
 import styles from "./UserTodosPage.module.css";
+import { useSelector } from "react-redux";
+import { selectUserById } from "../../entities/user/model/slice/userSlice";
+import type { RootState } from "../../app/providers/store/store";
+import UserTodosSkeleton from "../../shared/ui/Skeletons/UserTodosSkeleton/UserTodosSkeleton";
 
 function UserTodosPage() {
-  const { userTodos, userName } = useUserData();
+  const { id } = useParams();
+  const userId = Number(id);
+  const user = useSelector((state: RootState) => selectUserById(state, userId));
+  const username = user?.username || "unknown user";
+
+  const { data: userTodos = [], isLoading } = useGetUserTodosQuery(userId);
 
   // guard-clause
+  if (isLoading) return <UserTodosSkeleton />;
+
   if (!userTodos.length) {
-    return <div className={styles.empty}>No todos found for {userName}</div>;
+    return <div className={styles.empty}>No todos found for {username}</div>;
   }
 
   return (
     <div>
-      <h2 className={styles.title}>{userName} todos</h2>
+      <h2 className={styles.title}>{username} todos</h2>
       <ul className={styles.list}>
         {userTodos.map((todo) => (
           <li
