@@ -1,5 +1,5 @@
 import { MAX_TITLE_LENGTH } from "../../../shared/constants/constants";
-import styles from "./PostLenthFilter.module.css";
+import styles from "./PostLengthFilter.module.css";
 
 type PostLengthFilterProps = {
   value: number;

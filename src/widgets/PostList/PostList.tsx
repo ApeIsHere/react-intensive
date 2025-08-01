@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import type { Comment } from "../../entities/comment/model/types";
 import type { Post } from "../../entities/post/model/types";
 import PostCard from "../../entities/post/ui/PostCard";
@@ -7,6 +7,7 @@ import CommentList from "../CommentList/ui/CommentList";
 import PostLengthFilter from "../../features/PostLengthFilter/ui/PostLengthFilter";
 import { filterByLength } from "../../features/PostLengthFilter/lib/filterByLength";
 import { MAX_TITLE_LENGTH } from "../../shared/constants/constants";
+import ItemList from "../../shared/ui/ItemList/ItemList";
 
 type PostListProps = {
   posts: Post[];
@@ -28,16 +29,17 @@ function PostList({ posts, comments, title = "Posts" }: PostListProps) {
         <h2 className={styles.title}>{title}</h2>
         <PostLengthFilter value={maxTitleLength} onLengthChange={handleLengthChange} />
       </div>
-      <ul>
-        {filtredPosts.map((post) => (
-          <React.Fragment key={post.id}>
+      <ItemList
+        items={filtredPosts}
+        renderItem={(post) => (
+          <>
             <PostCard post={post} />
             <CommentList
               comments={comments.filter((comment) => comment.postId === post.id)}
             />
-          </React.Fragment>
-        ))}
-      </ul>
+          </>
+        )}
+      />
     </>
   );
 }

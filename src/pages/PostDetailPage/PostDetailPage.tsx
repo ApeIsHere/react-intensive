@@ -2,13 +2,13 @@ import { useParams } from "react-router-dom";
 import { useGetPostCommentsQuery } from "../../entities/comment/api/commentsApi";
 import styles from "./PostDetailPage.module.css";
 import PostCard from "../../entities/post/ui/PostCard";
-import CommentCard from "../../entities/comment/ui/CommentCard";
 import Button from "../../shared/ui/Button";
 import { useSelector } from "react-redux";
 import { selectPostById } from "../../entities/post/model/slice/postSlice";
 import type { RootState } from "../../app/providers/store/store";
 import { usePostsInitializer } from "../../shared/hooks/usePostInitializer";
 import PostDetailSkeleton from "../../shared/ui/Skeletons/PostDetailSkeleton/PostDetailSkeleton";
+import CommentList from "../../widgets/CommentList/ui/CommentList";
 
 function PostDetailPage() {
   // load data to store if the store is empty
@@ -69,7 +69,7 @@ function PostDetailPage() {
         {isFetching && <div className={styles.loading}>Refreshing comments...</div>}
       </div>
       {comments?.length ? (
-        comments.map((comment) => <CommentCard key={comment.id} comment={comment} />)
+        <CommentList comments={comments} />
       ) : (
         <div>"There are no comments yet"</div>
       )}
