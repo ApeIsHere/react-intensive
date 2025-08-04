@@ -8,6 +8,7 @@ import AlbumPhotosPage from "../../../pages/AlbumPhotosPage/AlbumPhotosPage";
 import UserLayout from "../../layouts/UserLayout";
 import DefaultLayout from "../../layouts/DefaultLayout";
 import AppLayout from "../../layouts/AppLayout";
+import NotFoundPage from "../../../pages/NotFoundPage/NotFoundPage";
 
 export const router = createBrowserRouter([
   {
@@ -18,6 +19,7 @@ export const router = createBrowserRouter([
       { path: "posts", element: <PostsPage /> },
       { path: "posts/:id", element: <PostDetailPage /> },
       { path: "albums/:id/photos", element: <AlbumPhotosPage /> },
+      { path: "*", element: <NotFoundPage /> },
     ],
   },
   {

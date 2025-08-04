@@ -9,11 +9,7 @@ type Props = {
 function PhotoCard({ photo, onClick }: Props) {
   return (
     <div className={styles.card} onClick={onClick}>
-      <img
-        // src={photo.thumbnailUrl}
-        src="https://placehold.co/320x240"
-        alt={photo.title}
-      />
+      <img src="https://placehold.co/320x240" alt={photo.title} />
       <p>{photo.title}</p>
     </div>
   );

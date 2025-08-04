@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 import { selectUserById } from "../../entities/user/model/slice/userSlice";
 import type { RootState } from "../../app/providers/store/store";
 import UserTodosSkeleton from "../../shared/ui/Skeletons/UserTodosSkeleton/UserTodosSkeleton";
+import TodoList from "../../widgets/TodoList/TodoList";
 
 function UserTodosPage() {
   const { id } = useParams();
@@ -24,17 +25,7 @@ function UserTodosPage() {
   return (
     <div>
       <h2 className={styles.title}>{username} todos</h2>
-      <ul className={styles.list}>
-        {userTodos.map((todo) => (
-          <li
-            key={todo.id}
-            className={`${styles.item} ${todo.completed ? styles.completed : ""}`}
-          >
-            <input type="checkbox" checked={todo.completed} readOnly />
-            <span>{todo.title}</span>
-          </li>
-        ))}
-      </ul>
+      <TodoList todos={userTodos} />
     </div>
   );
 }
